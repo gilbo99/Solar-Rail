@@ -4,7 +4,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using TMPro;
 
-public class Intractable : MonoBehaviour
+public class OLD_Intractable : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI promptText;
     public string Texttest;
