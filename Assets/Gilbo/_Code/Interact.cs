@@ -51,6 +51,7 @@ public class Interact : MonoBehaviour
     // Changes too diffrent camera depending on what you set minigameCam // allways set mainCam too player cam
     void SwitchCam()
     {
+        EventBus.Current.SolarPanelToggleTrigger();
         cam1stats = !cam1stats;
         minigamecamstats = !minigamecamstats;
         mainCam.SetActive(cam1stats);

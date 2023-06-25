@@ -23,19 +23,24 @@ public class EventBus : MonoBehaviour
         }
     }
 
+  
+
     //Makes an Event so it can get called 
-    public event Action KillFLoor;
-    // is the Event trigger 
-    public void KillFLoorTrigger()
+    public event Action SolarPanelToggle;
+    // is the Event trigger
+    public void SolarPanelToggleTrigger()
     {
-        KillFLoor();
+        SolarPanelToggle();
     }
+
+
+
  }
 
 
     /*
      Sub to eventbus
-    EventBus.Current.KillFLoor += Immaterialise;
+    EventBus.Current.SolarPanelToggle += Immaterialise;
 
 
     void Immaterialise()
