@@ -8,8 +8,9 @@ public class SolarManager : MonoBehaviour
     public GameObject Solar;
     public GameObject Solar2;
     public GameObject Solar3;
+    public GameObject battery;
     public bool toggle = true;
-    public int RandomNumber;
+    public int Randomrotate;
     public float Rotationx;
     public float BatteryCharge;
 
@@ -21,27 +22,39 @@ public class SolarManager : MonoBehaviour
     }
     void Update()
     {
-        if (Rotationx < -80 & Rotationx > -100)
+        if (Rotationx < Randomrotate + -10 & Rotationx > Randomrotate + -30 & BatteryCharge < 100 & toggle)
         {
-            BatteryCharge += Time.deltaTime * 2;
+
+            BatteryCharge += Time.deltaTime * 10;
+            if(BatteryCharge > 100) 
+            {
+                BatteryCharge = 100;
+            }
+
+            battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
 
         }
+        if(BatteryCharge > 30)
+        BatteryCharge -= Time.deltaTime;
+        battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
 
     }
     void ToggleSolarGame()
     {
         toggle = !toggle;
         //Solar.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-        Solar.gameObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<SolarMovertop>().enabled = toggle;
+        Solar.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         //Solar2.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-        Solar2.gameObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<SolarMovertop>().enabled = toggle;
+        Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         //Solar3.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-        Solar3.gameObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<SolarMovertop>().enabled = toggle;
+        Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
 
-        //RandomNumber = Random.Range(-40, -140);
-       
-    } 
-    
+        Randomrotate = Random.Range(-40, -120);
+        
+
+
+    }
+
     public void SetRotationx(float receivedRotationx)
     {
 
