@@ -8,6 +8,10 @@ public class SolarMovertop : MonoBehaviour
     public float maxRotation = -30;
     public float minRotation = -150;
     public float BatteryCharge;
+    public int RandomNumber;
+    public float RotationX;
+    public GameObject gameM;
+    
     //int Count;
 
 
@@ -16,7 +20,11 @@ public class SolarMovertop : MonoBehaviour
     void Start()
     {
         camRotation = transform.localRotation;
+        
+
     }
+    
+
     void Update()
     {
         
@@ -30,6 +38,8 @@ public class SolarMovertop : MonoBehaviour
             //Makes it that the Solar panel cant go past a certain Z/X
             if (camRotation.z > maxRotation - 5)
                 camRotation.x -= rotateSpeed;
+                RotationX = camRotation.x;
+                gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
 
             if (camRotation.z < minRotation + 5)
                 camRotation.x += rotateSpeed;
@@ -42,12 +52,11 @@ public class SolarMovertop : MonoBehaviour
          
 
 
-        if(camRotation.x < -80 & camRotation.x > -100)
-        {
-            BatteryCharge += Time.deltaTime * 2;
-        }
+       
         
     }
+
+    
 
     /*
     void FixedUpdate()
@@ -68,6 +77,6 @@ public class SolarMovertop : MonoBehaviour
     */
 
 
-    
+
 
 }

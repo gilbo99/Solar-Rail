@@ -9,7 +9,9 @@ public class SolarManager : MonoBehaviour
     public GameObject Solar2;
     public GameObject Solar3;
     public bool toggle = true;
-
+    public int RandomNumber;
+    public float Rotationx;
+    public float BatteryCharge;
 
     public void Start()
     {
@@ -17,7 +19,15 @@ public class SolarManager : MonoBehaviour
         EventBus.Current.SolarPanelToggle += ToggleSolarGame;
 
     }
+    void Update()
+    {
+        if (Rotationx < -80 & Rotationx > -100)
+        {
+            BatteryCharge += Time.deltaTime * 2;
 
+        }
+
+    }
     void ToggleSolarGame()
     {
         toggle = !toggle;
@@ -27,8 +37,22 @@ public class SolarManager : MonoBehaviour
         Solar2.gameObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<SolarMovertop>().enabled = toggle;
         //Solar3.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
         Solar3.gameObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<SolarMovertop>().enabled = toggle;
+
+        //RandomNumber = Random.Range(-40, -140);
+       
     } 
     
+    public void SetRotationx(float receivedRotationx)
+    {
+
+        if(Rotationx != receivedRotationx)
+        Rotationx = receivedRotationx;
+
+
+
+
+    }
+
 
 
     void OnDestroy()
