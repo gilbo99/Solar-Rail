@@ -12,8 +12,10 @@ public class Faceto : MonoBehaviour
     {
 
         // Gets XYZ  and sets XZ
-        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        //Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
 
-        transform.LookAt(targetPosition);
+        //transform.LookAt(targetPosition);
+
+        transform.rotation = Quaternion.LookRotation(transform.position - target.transform.position);
     }
 }
