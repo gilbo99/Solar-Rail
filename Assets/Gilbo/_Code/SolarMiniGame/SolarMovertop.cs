@@ -11,6 +11,7 @@ public class SolarMovertop : MonoBehaviour
     public int RandomNumber;
     public float RotationX;
     public GameObject gameM;
+    public GameObject Sun;
     
     //int Count;
 
@@ -47,13 +48,25 @@ public class SolarMovertop : MonoBehaviour
             //makes it move
             camRotation.z = Mathf.Clamp(camRotation.x, minRotation, maxRotation);
             transform.localRotation = Quaternion.Euler(0, 0, camRotation.z);
-            // Shows the X rotation for the solar panel
-            //
-         
+        // Shows the X rotation for the solar panel
+        //
 
 
-       
-        
+
+
+        // spawns sun and moves it
+
+
+        // Sun.transform.position = new Vector3(0, 0, 2);
+
+
+
+
+
+        print(Sun.transform.position);
+
+
+
     }
 
     
