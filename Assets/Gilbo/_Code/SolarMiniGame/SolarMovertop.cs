@@ -11,7 +11,7 @@ public class SolarMovertop : MonoBehaviour
     public int RandomNumber;
     public float RotationX;
     public GameObject gameM;
-    public GameObject Sun;
+    //public GameObject Sun;
     
     //int Count;
 
@@ -28,14 +28,20 @@ public class SolarMovertop : MonoBehaviour
 
     void Update()
     {
-        
-            //Movement
-            if (Input.GetKey("a"))
-                camRotation.x += rotateSpeed;
 
-            if (Input.GetKey("d"))
-                camRotation.x -= rotateSpeed;
+        //Movement
+        if (Input.GetKey("a"))
+        {
+            camRotation.x += rotateSpeed;
+            print("A");
+        }
 
+        if (Input.GetKey("d"))
+        {
+            camRotation.x -= rotateSpeed;
+            print("d");
+        }
+/*
             //Makes it that the Solar panel cant go past a certain Z/X
             if (camRotation.z > maxRotation - 5)
                 camRotation.x -= rotateSpeed;
@@ -44,10 +50,10 @@ public class SolarMovertop : MonoBehaviour
 
             if (camRotation.z < minRotation + 5)
                 camRotation.x += rotateSpeed;
-         
+         */
             //makes it move
-            camRotation.z = Mathf.Clamp(camRotation.x, minRotation, maxRotation);
-            transform.localRotation = Quaternion.Euler(0, 0, camRotation.z);
+            camRotation.x = Mathf.Clamp(camRotation.z, minRotation, maxRotation);
+            transform.localRotation = Quaternion.Euler(camRotation.x, 0, 0);
         // Shows the X rotation for the solar panel
         //
 
@@ -63,7 +69,7 @@ public class SolarMovertop : MonoBehaviour
 
 
 
-        print(Sun.transform.position);
+       // print(Sun.transform.position);
 
 
 
