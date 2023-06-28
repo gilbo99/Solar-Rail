@@ -6,8 +6,9 @@ using TMPro;
 public class Battery : MonoBehaviour
 {
 
-    public float batteryCharge;
+    float batteryCharge;
     public TMP_Text batteryText;
+    public int batteryLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class Battery : MonoBehaviour
     void Update()
     {
         UpdateUIText(batteryCharge);
+
     }
 
     public void Charge(float SentBattery)
@@ -28,6 +30,8 @@ public class Battery : MonoBehaviour
 
     void UpdateUIText(float setWord)
     {
-        batteryText.SetText(batteryCharge.ToString());
+        batteryLevel = (int)Mathf.Round(setWord);
+        batteryText.SetText(batteryLevel.ToString());
+
     }
 }

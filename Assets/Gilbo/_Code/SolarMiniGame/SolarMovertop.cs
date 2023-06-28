@@ -4,92 +4,42 @@ using UnityEngine;
 
 public class SolarMovertop : MonoBehaviour
 {
-    public float rotateSpeed;
+    public float rotateSpeed = 0.5f;
     public float maxRotation = -30;
     public float minRotation = -150;
-    public float BatteryCharge;
-    public int RandomNumber;
     public float RotationX;
     public GameObject gameM;
-    public GameObject Sun;
-    
-    //int Count;
 
-
-    // Update is called once per frame
     private Quaternion camRotation;
+    // Start is called before the first frame update
     void Start()
     {
         camRotation = transform.localRotation;
-        
-
     }
-    
 
+    // Update is called once per frame
     void Update()
     {
-        
-            //Movement
-            if (Input.GetKey("a"))
-                camRotation.x += rotateSpeed;
-
-            if (Input.GetKey("d"))
-                camRotation.x -= rotateSpeed;
-
-            //Makes it that the Solar panel cant go past a certain Z/X
-            if (camRotation.z > maxRotation - 5)
-                camRotation.x -= rotateSpeed;
-                RotationX = camRotation.x;
-                gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
-
-            if (camRotation.z < minRotation + 5)
-                camRotation.x += rotateSpeed;
-         
-            //makes it move
-            camRotation.z = Mathf.Clamp(camRotation.x, minRotation, maxRotation);
-            transform.localRotation = Quaternion.Euler(0, 0, camRotation.z);
-        // Shows the X rotation for the solar panel
-        //
-
-
-
-
-        // spawns sun and moves it
-
-
-        // Sun.transform.position = new Vector3(0, 0, 2);
-
-
-
-
-
-        print(Sun.transform.position);
-
-
-
-    }
-
-    
-
-    /*
-    void FixedUpdate()
-    {
-        
-        if (Count > 15)
+        //Movement
+        if (Input.GetKey("a"))
         {
-            Debug.Log(camRotation.x);
-            SolarAngle = camRotation.x;
-            Count = 0;
+            camRotation.x += rotateSpeed;
+            print("a");
+            RotationX = camRotation.x;
+            gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
         }
-        Count++;
-        print(Count);
 
+        if (Input.GetKey("d"))
+        {
+            camRotation.x -= rotateSpeed;
+            print("D");
+            RotationX = camRotation.x;
+            gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
+        }
+
+
+        camRotation.x = Mathf.Clamp(camRotation.x, minRotation, maxRotation);
+        transform.localRotation = Quaternion.Euler(camRotation.x, 0, 0);
 
     }
-
-    */
-
-
-
-
 }

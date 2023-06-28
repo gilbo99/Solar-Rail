@@ -6,13 +6,14 @@ public class SolarManager : MonoBehaviour
 {
 
     public GameObject Solar;
-    public GameObject Solar2;
-    public GameObject Solar3;
+    //public GameObject Solar2;
+    //public GameObject Solar3;
     public GameObject battery;
     public bool toggle = true;
     public int Randomrotate;
     public float Rotationx;
     public float BatteryCharge;
+    public GameObject Sun;
 
     public void Start()
     {
@@ -22,9 +23,9 @@ public class SolarManager : MonoBehaviour
     }
     void Update()
     {
-        if (Rotationx < Randomrotate + -10 & Rotationx > Randomrotate + -30 & BatteryCharge < 100 & toggle)
+        if (Rotationx < Randomrotate - 10f & Rotationx > Randomrotate - 30f & toggle)
         {
-
+            Sun.SetActive(true);
             BatteryCharge += Time.deltaTime * 10;
             if(BatteryCharge > 100) 
             {
@@ -33,7 +34,13 @@ public class SolarManager : MonoBehaviour
 
             battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
 
+        }else
+        {
+            Sun.SetActive(false);
         }
+
+
+
         if(BatteryCharge > 30)
         BatteryCharge -= Time.deltaTime;
         battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
@@ -45,9 +52,9 @@ public class SolarManager : MonoBehaviour
         //Solar.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
         Solar.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         //Solar2.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-        Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
+       // Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         //Solar3.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-        Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
+       // Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
 
         Randomrotate = Random.Range(-40, -120);
         
@@ -60,6 +67,7 @@ public class SolarManager : MonoBehaviour
 
         if(Rotationx != receivedRotationx)
         Rotationx = receivedRotationx;
+        
 
 
 
