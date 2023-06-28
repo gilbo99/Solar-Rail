@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Interact : MonoBehaviour
+
+public class InteractForMinigames : MonoBehaviour
 {
-    public TextMeshProUGUI interactText;
     public string MiniGame;
     public GameObject mainCam;
     public GameObject minigameCam;
@@ -13,41 +12,57 @@ public class Interact : MonoBehaviour
     public bool cam1stats = true;
     public bool minigamecamstats = false;
     public bool inputbool = false;
+    public GameObject UIUpdater;
 
+    
 
     //Add GameObject that is gamemanager when setup
     // make sure it triggers OnTriggerExit once minigame is done
 
-
+    public void Start()
+    {
+        
+    }
     void Update()
     {
+
+        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
+
+
+
         if (Input.GetKeyDown(KeyCode.F) & inputbool)
         {
             SwitchCam();
-            UpdateUIText("");
+            updateText.UpdateUIText("");
         }
 
     }
     // Sets text when player enters
     void OnTriggerEnter(Collider other)
     {
+        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
         inputbool = true;
         if (other.CompareTag("Player"))
-            UpdateUIText("Press F To Start " + MiniGame);
+        {
+            updateText.UpdateUIText("Press F To Start " + MiniGame);
+        }
+           
 
     }
     // Sets text to nothing when player leaves
     void OnTriggerExit(Collider other)
     {
+        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
         inputbool = false;
         if (other.CompareTag("Player"))
-            UpdateUIText("");
+        {
+            updateText.UpdateUIText("");
+        }
+
+            
     }
 
-    void UpdateUIText(string setWord)
-    {
-        interactText.text = setWord;
-    }
+    
     // Changes too diffrent camera depending on what you set minigameCam // allways set mainCam too player cam
     void SwitchCam()
     {
