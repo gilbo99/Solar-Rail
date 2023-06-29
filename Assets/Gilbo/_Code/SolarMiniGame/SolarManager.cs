@@ -6,10 +6,11 @@ public class SolarManager : MonoBehaviour
 {
 
     public GameObject Solar;
-    //public GameObject Solar2;
-    //public GameObject Solar3;
+    public GameObject Solar2;
+    public GameObject Solar3;
     public GameObject sunRotate;
     public GameObject battery;
+    public GameObject batteryText;
     public bool toggle = true;
     public int Randomrotate;
     public float Rotationx;
@@ -53,10 +54,11 @@ public class SolarManager : MonoBehaviour
         toggle = !toggle;
         //Solar.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
         Solar.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
+        batteryText.SetActive(toggle);
         //Solar2.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-       // Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
+         Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         //Solar3.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
-       // Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
+         Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
 
         Randomrotate = Random.Range(50, -50);
         sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
