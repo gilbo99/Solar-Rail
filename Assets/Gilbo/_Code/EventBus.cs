@@ -33,9 +33,17 @@ public class EventBus : MonoBehaviour
         SolarPanelToggle();
     }
 
+    public event Action UiManagerEvent;
+    // is the Event trigger
+    public void UiManagerEventTrigger()
+    {
+        UiManagerEvent();
+    }
 
 
- }
+
+
+}
 
 
     /*
