@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,37 +15,39 @@ public class InteractForMinigames : MonoBehaviour
     public bool inputbool = false;
     public GameObject UIUpdater;
 
-    
+    private UpdateUIInteract uiUpdate;
 
     //Add GameObject that is gamemanager when setup
     // make sure it triggers OnTriggerExit once minigame is done
 
     public void Start()
     {
-        
+        uiUpdate = UIUpdater.GetComponent<UpdateUIInteract>();
     }
     void Update()
     {
 
-        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
+        
 
 
 
         if (Input.GetKeyDown(KeyCode.F) & inputbool)
         {
-            SwitchCam();
-            updateText.UpdateUIText("");
+            
+            uiUpdate.UpdateUIText("");
+            MiniGameSwitch();
+
         }
 
     }
     // Sets text when player enters
     void OnTriggerEnter(Collider other)
     {
-        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
+       
         inputbool = true;
         if (other.CompareTag("Player"))
         {
-            updateText.UpdateUIText("Press F To Start " + MiniGame);
+            uiUpdate.UpdateUIText("Press F To Start " + MiniGame);
         }
            
 
@@ -52,11 +55,11 @@ public class InteractForMinigames : MonoBehaviour
     // Sets text to nothing when player leaves
     void OnTriggerExit(Collider other)
     {
-        var updateText = UIUpdater.GetComponent<UpdateUIInteract>();
+        
         inputbool = false;
         if (other.CompareTag("Player"))
         {
-            updateText.UpdateUIText("");
+            uiUpdate.UpdateUIText("");
         }
 
             
@@ -66,11 +69,36 @@ public class InteractForMinigames : MonoBehaviour
     // Changes too diffrent camera depending on what you set minigameCam // allways set mainCam too player cam
     void SwitchCam()
     {
-        EventBus.Current.SolarPanelToggleTrigger();
+        
         cam1stats = !cam1stats;
         minigamecamstats = !minigamecamstats;
         mainCam.SetActive(cam1stats);
         minigameCam.SetActive(minigamecamstats);
         player.GetComponent<PlayerMovement>().enabled = cam1stats;
+    }
+
+
+
+
+
+    void MiniGameSwitch()
+    {
+
+        switch (MiniGame)
+        {
+            case "Solar Rotate":
+                EventBus.Current.SolarPanelToggleTrigger();
+                SwitchCam();
+                break;
+
+            case "Power Cells Charge":
+                EventBus.Current.PowerCellsToggleTrigger();
+                SwitchCam();
+                break;
+
+
+        }
+
+
     }
 }

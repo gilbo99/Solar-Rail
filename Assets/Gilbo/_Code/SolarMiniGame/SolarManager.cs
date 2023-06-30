@@ -52,12 +52,9 @@ public class SolarManager : MonoBehaviour
     void ToggleSolarGame()
     {
         toggle = !toggle;
-        //Solar.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
         Solar.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         batteryText.SetActive(toggle);
-        //Solar2.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
          Solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
-        //Solar3.gameObject.transform.GetChild(1).GetComponent<SolarMoverMid>().enabled = toggle;
          Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
 
         Randomrotate = Random.Range(50, -50);
