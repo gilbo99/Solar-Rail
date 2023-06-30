@@ -10,17 +10,19 @@ public class PowerCellsManager : MonoBehaviour
     public GameObject powerCell3;
     public GameObject powerCell4;
 
+    public float rotateSpeed = 0.5f;
+
+
+    private Quaternion camRotation;
     // Start is called before the first frame update
     void Start()
     {
-       EventBus.Current.PowerCellsToggle += Test;
+        camRotation = transform.localRotation;
+        EventBus.Current.PowerCellsToggle += Test;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
 
 
