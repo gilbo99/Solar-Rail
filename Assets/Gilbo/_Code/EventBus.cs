@@ -33,6 +33,19 @@ public class EventBus : MonoBehaviour
         SolarPanelToggle();
     }
 
+
+
+
+    public event Action PowerCellsToggle;
+
+    public void PowerCellsToggleTrigger()
+    {
+        PowerCellsToggle();
+    }
+
+
+
+
     public event Action UiManagerEvent;
     // is the Event trigger
     public void UiManagerEventTrigger()

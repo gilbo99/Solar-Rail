@@ -20,6 +20,6 @@ public class SunRotate : MonoBehaviour
     public void RotateSun(float _RotateZ)
     {
         
-        RotateZ = -_RotateZ + 25;
+        RotateZ = -_RotateZ + 25f;
     }
 }

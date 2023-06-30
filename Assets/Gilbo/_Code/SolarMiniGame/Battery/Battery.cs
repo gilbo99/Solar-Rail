@@ -8,6 +8,7 @@ public class Battery : MonoBehaviour
 
     float batteryCharge;
     public TMP_Text batteryText;
+    public TextMeshProUGUI batteryUI;
     public int batteryLevel;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ public class Battery : MonoBehaviour
     {
         batteryLevel = (int)Mathf.Round(setWord);
         batteryText.SetText(batteryLevel.ToString());
+
+        batteryUI.SetText(batteryLevel.ToString());
 
     }
 }
