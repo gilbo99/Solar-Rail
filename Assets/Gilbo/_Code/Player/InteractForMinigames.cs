@@ -74,7 +74,8 @@ public class InteractForMinigames : MonoBehaviour
         minigamecamstats = !minigamecamstats;
         mainCam.SetActive(cam1stats);
         minigameCam.SetActive(minigamecamstats);
-        player.GetComponent<PlayerMovement>().enabled = cam1stats;
+        player.SetActive(cam1stats);
+
     }
 
 

@@ -5,20 +5,18 @@ using UnityEngine;
 
 public class PowerCellsManager : MonoBehaviour
 {
-    public GameObject powerCell1;
-    public GameObject powerCell2;
-    public GameObject powerCell3;
-    public GameObject powerCell4;
+    public GameObject PowerCell;
+    public bool PowerCelloff = false;
 
     public float rotateSpeed = 0.5f;
 
 
-    private Quaternion camRotation;
+    
     // Start is called before the first frame update
     void Start()
     {
-        camRotation = transform.localRotation;
-        EventBus.Current.PowerCellsToggle += Test;
+        
+        EventBus.Current.PowerCellsToggle += PowerCells;
     }
 
     // Update is called once per frame
@@ -26,14 +24,17 @@ public class PowerCellsManager : MonoBehaviour
 
 
 
-    void Test()
+    void PowerCells()
     {
+        PowerCelloff = !PowerCelloff;
+
+        PowerCell.GetComponent<PowerCellMover>().enabled = PowerCelloff;
 
     }
 
 
     void OnDestroy()
     {
-        EventBus.Current.PowerCellsToggle -= Test;
+        EventBus.Current.PowerCellsToggle -= PowerCells;
     }
 }

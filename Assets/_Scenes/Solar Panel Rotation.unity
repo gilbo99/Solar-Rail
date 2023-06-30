@@ -476,10 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b2464557331d244ade9129729b9dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerCell1: {fileID: 0}
-  powerCell2: {fileID: 0}
-  powerCell3: {fileID: 0}
-  powerCell4: {fileID: 0}
+  PowerCell: {fileID: 644400135}
+  PowerCelloff: 0
   rotateSpeed: 0.5
 --- !u!1 &231795615
 GameObject:
@@ -1086,7 +1084,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644400135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8642447155e82ae469a98582ae662a77, type: 3}
   m_Name: 
@@ -2070,7 +2068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1593430443
 AudioListener:
   m_ObjectHideFlags: 0
