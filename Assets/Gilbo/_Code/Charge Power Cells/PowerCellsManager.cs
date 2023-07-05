@@ -9,13 +9,11 @@ public class PowerCellsManager : MonoBehaviour
 {
     public GameObject PowerCell;
     public GameObject sliderUItoggle;
-    public bool PowerCelloff = false;
+    private bool toggle = false;
     public List<string> objective;
     public List<string> key;
     public GameObject UIManager;
     public Color32 color;
-
-    public float rotateSpeed = 0.5f;
 
 
     private UIManager uiUpdate;
@@ -34,12 +32,12 @@ public class PowerCellsManager : MonoBehaviour
 
     void PowerCells()
     {
-        PowerCelloff = !PowerCelloff;
+        toggle = !toggle;
 
-        PowerCell.GetComponent<PowerCellMover>().enabled = PowerCelloff;
-        sliderUItoggle.SetActive(PowerCelloff);
+        PowerCell.GetComponent<PowerCellMover>().enabled = toggle;
+        sliderUItoggle.SetActive(toggle);
 
-        if (PowerCelloff)
+        if (toggle)
         {
             
             uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2], objective[3]);

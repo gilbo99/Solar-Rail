@@ -11,9 +11,9 @@ public class SolarManager : MonoBehaviour
     public GameObject sunRotate;
     public GameObject battery;
     public GameObject batteryText;
-    public bool toggle = true;
-    public int Randomrotate;
-    public float Rotationx;
+    private bool toggle = true;
+    private int Randomrotate;
+    private float Rotationx;
     public float BatteryCharge;
     public GameObject Sun;
     public GameObject UIManager;

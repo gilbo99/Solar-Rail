@@ -8,18 +8,12 @@ using Unity.VisualScripting;
 public class UIManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI objectiveUIHeader;
-    public TextMeshProUGUI objectiveUILine1;
-    public TextMeshProUGUI objectiveUILine2;
-    public TextMeshProUGUI objectiveUILine3;
+    public List<TextMeshProUGUI> objectiveText;
 
-    public TextMeshProUGUI buttonLeft;
-    public TextMeshProUGUI buttonMid;
-    public TextMeshProUGUI buttonRight;
-
+    public List<TextMeshProUGUI> buttonText;
+  
     public List<GameObject> borderColor;
     
-
     public TextMeshProUGUI interactText;
     public List<Slider> sliderList;
     
@@ -39,18 +33,18 @@ public class UIManager : MonoBehaviour
 
     public void ObjectiveUpdate(string header, string line1 , string line2 , string line3)
     {
-        objectiveUIHeader.text = header;
-        objectiveUILine1.text = line1;
-        objectiveUILine2.text = line2;
-        objectiveUILine3.text = line3;
+        objectiveText[0].text = header;
+        objectiveText[1].text = line1;
+        objectiveText[2].text = line2;
+        objectiveText[3].text = line3;
 
     }
 
     public void ButtonUpdate(string key0, string key1 ,string key2)
     {
-        buttonLeft.text = key0;
-        buttonMid.text = key1;
-        buttonRight.text = key2;    
+        buttonText[0].text = key0;
+        buttonText[1].text = key1;
+        buttonText[2].text = key2;    
     }
 
     public void borderChange(Color32 pickcolor)
