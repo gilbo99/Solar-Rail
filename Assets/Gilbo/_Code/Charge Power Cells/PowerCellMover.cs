@@ -62,7 +62,7 @@ public class PowerCellMover : MonoBehaviour
 
             CellCharge[PowerCellSegment] =+ BatteryCharge;
 
-            sliderUI.GetComponent<UpdateUIInteract>().BatterySlider(BatteryCharge, PowerCellSegment);
+            sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
         }
 
         

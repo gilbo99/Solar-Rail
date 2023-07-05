@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3f5d0f15d229740afd1aa76c053b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIUpdater: {fileID: 228588711}
+  UIUpdater: {fileID: 1221495560}
 --- !u!1 &815622643 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c4793cc01861d704ca9e0c2151b51eb0, type: 3}
@@ -2900,7 +2900,7 @@ GameObject:
   - component: {fileID: 1221495564}
   - component: {fileID: 1221495563}
   - component: {fileID: 1221495562}
-  - component: {fileID: 1221495561}
+  - component: {fileID: 1221495565}
   m_Layer: 0
   m_Name: MiniGameManager
   m_TagString: Untagged
@@ -2908,26 +2908,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1221495561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221495560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb1d3fc0e1ca97438935a49d049cb12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: {fileID: 231795617}
-  sliderList:
-  - {fileID: 1524816057}
-  - {fileID: 60502598}
-  - {fileID: 851643783}
-  - {fileID: 111581141}
-  - {fileID: 625223519}
-  - {fileID: 206965765}
 --- !u!114 &1221495562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,6 +2962,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221495565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221495560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e0e27386822464887b0c70be5ed3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: {fileID: 231795617}
+  sliderList:
+  - {fileID: 1524816057}
+  - {fileID: 60502598}
+  - {fileID: 851643783}
+  - {fileID: 111581141}
+  - {fileID: 625223519}
+  - {fileID: 206965765}
 --- !u!1 &1225370898
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,6 +3591,10 @@ PrefabInstance:
       propertyPath: MiniGame
       value: Power Cells Charge
       objectReference: {fileID: 0}
+    - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: UIUpdater
       value: 
@@ -4541,6 +4545,10 @@ PrefabInstance:
       propertyPath: MiniGame
       value: Solar Rotate
       objectReference: {fileID: 0}
+    - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: UIUpdater
       value: 

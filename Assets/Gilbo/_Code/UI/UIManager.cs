@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UpdateUIInteract : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI interactText;
     public List<Slider> sliderList;
