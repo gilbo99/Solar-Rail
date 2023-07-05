@@ -11,7 +11,12 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI objectiveUILine1;
     public TextMeshProUGUI objectiveUILine2;
     public TextMeshProUGUI objectiveUILine3;
+
+    public TextMeshProUGUI buttonLeft;
+    public TextMeshProUGUI buttonMid;
+    public TextMeshProUGUI buttonRight;
     
+
     public TextMeshProUGUI interactText;
     public List<Slider> sliderList;
     // Start is called before the first frame update
@@ -36,6 +41,14 @@ public class UIManager : MonoBehaviour
         objectiveUILine3.text = line3;
 
     }
+
+    public void ButtonUpdate(string key0, string key1 ,string key2)
+    {
+        buttonLeft.text = key0;
+        buttonMid.text = key1;
+        buttonRight.text = key2;    
+    }
+
 
 
 }

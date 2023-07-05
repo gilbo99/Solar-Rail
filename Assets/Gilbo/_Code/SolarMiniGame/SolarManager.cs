@@ -19,6 +19,7 @@ public class SolarManager : MonoBehaviour
     public GameObject UIManager;
 
     public List<string> objective;
+    public List<string> keys;
 
 
 
@@ -76,10 +77,13 @@ public class SolarManager : MonoBehaviour
         if (toggle)
         {
             uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2] , objective[3]);
+            uiUpdate.ButtonUpdate(keys[0], keys[1], keys[2]);
         }
         else
         {
             uiUpdate.ObjectiveUpdate("", "", "", "");
+            uiUpdate.ButtonUpdate("","","");
+
         }
 
 
@@ -94,13 +98,7 @@ public class SolarManager : MonoBehaviour
         
 
 
-
-
     }
-
-    
-
-
 
     void OnDestroy()
     {

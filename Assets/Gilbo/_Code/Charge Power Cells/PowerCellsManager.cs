@@ -9,20 +9,21 @@ public class PowerCellsManager : MonoBehaviour
     public GameObject sliderUItoggle;
     public bool PowerCelloff = false;
     public List<string> objective;
+    public List<string> key;
     public GameObject UIManager;
 
     public float rotateSpeed = 0.5f;
 
 
     private UIManager uiUpdate;
-    // Start is called before the first frame update
+   
     void Start()
     {
         uiUpdate = UIManager.GetComponent<UIManager>();
         EventBus.Current.PowerCellsToggle += PowerCells;
     }
 
-    // Update is called once per frame
+  
     
 
 
@@ -37,10 +38,13 @@ public class PowerCellsManager : MonoBehaviour
         if (PowerCelloff)
         {
             uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2], objective[3]);
+            uiUpdate.ButtonUpdate(key[0], key[1], key[2]);
         }
         else
         {
             uiUpdate.ObjectiveUpdate("", "", "", "");
+            uiUpdate.ButtonUpdate("", "", "");
+
         }
 
     }
