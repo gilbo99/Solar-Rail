@@ -11,15 +11,26 @@ public class SolarManager : MonoBehaviour
     public GameObject sunRotate;
     public GameObject battery;
     public GameObject batteryText;
-    public bool toggle = true;
-    public int Randomrotate;
-    public float Rotationx;
+    private bool toggle = true;
+    private int Randomrotate;
+    private float Rotationx;
     public float BatteryCharge;
     public GameObject Sun;
-    
+    public GameObject UIManager;
+    public Color32 color;
+
+    public List<string> objective;
+    public List<string> keys;
+
+
+
+
+
+    private UIManager uiUpdate;
 
     public void Start()
     {
+        uiUpdate = UIManager.GetComponent<UIManager>();
         ToggleSolarGame();
         EventBus.Current.SolarPanelToggle += ToggleSolarGame;
 
@@ -64,6 +75,23 @@ public class SolarManager : MonoBehaviour
         Randomrotate = Random.Range(50, -50);
         sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
 
+        if (toggle)
+        {
+            uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2] , objective[3]);
+            uiUpdate.ButtonUpdate(keys[0], keys[1], keys[2]);
+            uiUpdate.borderChange(color);
+        }
+        else
+        {
+            Color32 color2 = new Color32(225, 255, 0, 0);
+            uiUpdate.ObjectiveUpdate("", "", "", "");
+            uiUpdate.ButtonUpdate("","","");
+            uiUpdate.borderChange(color2);
+
+        }
+
+
+
     }
 
     public void SetRotationx(float receivedRotationx)
@@ -74,13 +102,7 @@ public class SolarManager : MonoBehaviour
         
 
 
-
-
     }
-
-    
-
-
 
     void OnDestroy()
     {

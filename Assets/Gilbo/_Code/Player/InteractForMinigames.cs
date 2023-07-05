@@ -13,16 +13,16 @@ public class InteractForMinigames : MonoBehaviour
     public bool cam1stats = true;
     public bool minigamecamstats = false;
     public bool inputbool = false;
-    public GameObject UIUpdater;
+    public GameObject UIManager;
 
-    private UpdateUIInteract uiUpdate;
+    private UIManager uiUpdate;
 
     //Add GameObject that is gamemanager when setup
     // make sure it triggers OnTriggerExit once minigame is done
 
     public void Start()
     {
-        uiUpdate = UIUpdater.GetComponent<UpdateUIInteract>();
+        uiUpdate = UIManager.GetComponent<UIManager>();
     }
     void Update()
     {
@@ -33,7 +33,7 @@ public class InteractForMinigames : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) & inputbool)
         {
-            
+
             uiUpdate.UpdateUIText("");
             MiniGameSwitch();
 
@@ -47,9 +47,9 @@ public class InteractForMinigames : MonoBehaviour
         inputbool = true;
         if (other.CompareTag("Player"))
         {
-            uiUpdate.UpdateUIText("Press F To Start " + MiniGame);
+             uiUpdate.UpdateUIText("Press F To Start " + MiniGame);
         }
-           
+
 
     }
     // Sets text to nothing when player leaves

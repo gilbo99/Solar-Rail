@@ -21,11 +21,11 @@ public class InteractBattery : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        UIUpdater.GetComponent<UpdateUIInteract>().UpdateUIText("Test");
+       // UIUpdater.GetComponent<UpdateUIInteract>().UpdateUIText("Test");
     }
 
     void OnTriggerExit(Collider other)
     {
-        UIUpdater.GetComponent<UpdateUIInteract>().UpdateUIText("");
+      //  UIUpdater.GetComponent<UpdateUIInteract>().UpdateUIText("");
     }
 }

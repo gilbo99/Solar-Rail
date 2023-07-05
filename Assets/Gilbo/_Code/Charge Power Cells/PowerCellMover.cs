@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class PowerCellMover : MonoBehaviour
 {
-    public float rotateSpeed = 0.5f;
-    public int PowerCellSegment = 1;
+    public int PowerCellSegment = 0;
+    public List<float> cellCharge;
+    public GameObject sliderUI;
+    public float BatteryCharge;
+    public float randomCharge;
+    public float confirmedPowerCellCharge;
 
-    public float CellCharge1;
-    public float CellCharge2;
-    public float CellCharge3;
-    public float CellCharge4;
-    public float CellCharge5;
-    public float CellCharge6;
-    
+
 
     private Quaternion camRotation;
-    // Start is called before the first frame update
+
     void Start()
     {
-
         camRotation = transform.localRotation;
-
         camRotation.x = 90f;
-
-        
     }
-
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -36,59 +29,83 @@ public class PowerCellMover : MonoBehaviour
         if (Input.GetKeyDown("d"))
         {
             camRotation.x += 60f;
+            PowerCellRotation(1);
+            BatteryCharge = cellCharge[PowerCellSegment];
+            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+            randomCharge = Random.Range(10, 50);
+            
         }
 
         if (Input.GetKeyDown("a"))
         {
             camRotation.x -= 60f;
+            PowerCellRotation(-1);
+            BatteryCharge = cellCharge[PowerCellSegment];
+            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
 
-        }
-
-        if (Input.GetKey("w"))
-        {
             
         }
 
         
+        
+        if (Input.GetKey("w"))
+        {
+
+            BatteryCharge += Time.deltaTime * randomCharge;
+            if (BatteryCharge > 100)
+            {
+              
+            }
 
 
+            cellCharge[PowerCellSegment] =+ BatteryCharge;
 
+            sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
+        }
 
+        if(Input.GetKey("space"))
+        {
+            /*
+            for (i = < 7, i = 0, i++)
+            {
+                confirmedPowerCellCharge + cellCharge[i];
+            }
+            */
+        }
 
-
-        transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-
-
-
+        
+       
+  
     }
-    /*
-    void PowerCellRotation()
+
+    void PowerCellRotation(int listadd)
     {
-        if (powerCellSegment == 0)
+
+
+        PowerCellSegment += listadd;
+
+
+        if(PowerCellSegment == 6)
         {
             PowerCellSegment = 0;
-        } else
-        {
-            powerCellSegment++;
         }
+        if (PowerCellSegment == -1)
+        {
+            PowerCellSegment = 5;
+        }
+
     }
 
-    void ChargePowerCellSegment()
-    {
-        list.PowerCellSegmentLevel[PowerCellSegment] ++ 1;
-    }
 
-    //UPDATE
+     
 
-    if(powerCellSegmentLevel[powerCellSegment] > 10)
-    {
-        // FAILL
-    }
 
-   */
-
-       
     
+
+
+
+
+
 
 }
 
