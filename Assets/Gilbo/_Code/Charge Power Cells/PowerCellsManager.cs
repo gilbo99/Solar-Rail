@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerCellsManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class PowerCellsManager : MonoBehaviour
     public List<string> objective;
     public List<string> key;
     public GameObject UIManager;
+    public Color32 color;
 
     public float rotateSpeed = 0.5f;
 
@@ -19,6 +22,7 @@ public class PowerCellsManager : MonoBehaviour
    
     void Start()
     {
+        
         uiUpdate = UIManager.GetComponent<UIManager>();
         EventBus.Current.PowerCellsToggle += PowerCells;
     }
@@ -37,13 +41,19 @@ public class PowerCellsManager : MonoBehaviour
 
         if (PowerCelloff)
         {
+            
             uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2], objective[3]);
             uiUpdate.ButtonUpdate(key[0], key[1], key[2]);
+            uiUpdate.borderChange(color);
+
         }
         else
         {
+            Color32 color2 = new Color32(225, 255, 0, 0);
             uiUpdate.ObjectiveUpdate("", "", "", "");
-            uiUpdate.ButtonUpdate("", "", "");
+            uiUpdate.ButtonUpdate("", "", ""); 
+            uiUpdate.borderChange(color2);
+
 
         }
 

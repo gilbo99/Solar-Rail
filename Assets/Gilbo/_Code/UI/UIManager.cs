@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,13 +16,16 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI buttonLeft;
     public TextMeshProUGUI buttonMid;
     public TextMeshProUGUI buttonRight;
+
+    public List<GameObject> borderColor;
     
 
     public TextMeshProUGUI interactText;
     public List<Slider> sliderList;
-    // Start is called before the first frame update
+    
 
 
+    
     public void UpdateUIText(string setWord)
     {
         interactText.text = setWord;
@@ -47,6 +51,15 @@ public class UIManager : MonoBehaviour
         buttonLeft.text = key0;
         buttonMid.text = key1;
         buttonRight.text = key2;    
+    }
+
+    public void borderChange(Color32 pickcolor)
+    {
+        borderColor[0].GetComponent<Image>().color = pickcolor;
+        borderColor[1].GetComponent<Image>().color = pickcolor;
+        borderColor[2].GetComponent<Image>().color = pickcolor;
+        borderColor[3].GetComponent<Image>().color = pickcolor;
+
     }
 
 

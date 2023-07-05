@@ -17,6 +17,7 @@ public class SolarManager : MonoBehaviour
     public float BatteryCharge;
     public GameObject Sun;
     public GameObject UIManager;
+    public Color32 color;
 
     public List<string> objective;
     public List<string> keys;
@@ -78,11 +79,14 @@ public class SolarManager : MonoBehaviour
         {
             uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2] , objective[3]);
             uiUpdate.ButtonUpdate(keys[0], keys[1], keys[2]);
+            uiUpdate.borderChange(color);
         }
         else
         {
+            Color32 color2 = new Color32(225, 255, 0, 0);
             uiUpdate.ObjectiveUpdate("", "", "", "");
             uiUpdate.ButtonUpdate("","","");
+            uiUpdate.borderChange(color2);
 
         }
 
