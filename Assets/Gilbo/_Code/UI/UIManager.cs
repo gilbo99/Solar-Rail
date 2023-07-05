@@ -49,11 +49,14 @@ public class UIManager : MonoBehaviour
 
     public void borderChange(Color32 pickcolor)
     {
-        borderColor[0].GetComponent<Image>().color = pickcolor;
-        borderColor[1].GetComponent<Image>().color = pickcolor;
-        borderColor[2].GetComponent<Image>().color = pickcolor;
-        borderColor[3].GetComponent<Image>().color = pickcolor;
+        for (int i = 0; i < borderColor.Count; i++)
+        {
+            borderColor[i].GetComponent<Image>().color = pickcolor;
+            borderColor[i].GetComponent<Image>().color = pickcolor;
+            borderColor[i].GetComponent<Image>().color = pickcolor;
+            borderColor[i].GetComponent<Image>().color = pickcolor;
 
+        }
     }
 
 

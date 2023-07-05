@@ -5,26 +5,22 @@ using UnityEngine;
 public class PowerCellMover : MonoBehaviour
 {
     public int PowerCellSegment = 0;
-    public List<float> CellCharge;
+    public List<float> cellCharge;
     public GameObject sliderUI;
     public float BatteryCharge;
-  
+    public float randomCharge;
+    public float confirmedPowerCellCharge;
 
 
 
     private Quaternion camRotation;
-    // Start is called before the first frame update
+
     void Start()
     {
         camRotation = transform.localRotation;
         camRotation.x = 90f;
     }
-    private void Awake()
-    {
-      
-    }
-
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -34,8 +30,9 @@ public class PowerCellMover : MonoBehaviour
         {
             camRotation.x += 60f;
             PowerCellRotation(1);
-            BatteryCharge = CellCharge[PowerCellSegment];
+            BatteryCharge = cellCharge[PowerCellSegment];
             transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+            randomCharge = Random.Range(10, 50);
             
         }
 
@@ -43,26 +40,37 @@ public class PowerCellMover : MonoBehaviour
         {
             camRotation.x -= 60f;
             PowerCellRotation(-1);
-            BatteryCharge = CellCharge[PowerCellSegment];
+            BatteryCharge = cellCharge[PowerCellSegment];
             transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+
             
         }
 
         
         
-        if (Input.GetKey("space"))
+        if (Input.GetKey("w"))
         {
 
-            BatteryCharge += Time.deltaTime * 10;
+            BatteryCharge += Time.deltaTime * randomCharge;
             if (BatteryCharge > 100)
             {
-                
+              
             }
 
 
-            CellCharge[PowerCellSegment] =+ BatteryCharge;
+            cellCharge[PowerCellSegment] =+ BatteryCharge;
 
             sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
+        }
+
+        if(Input.GetKey("space"))
+        {
+            /*
+            for (i = < 7, i = 0, i++)
+            {
+                confirmedPowerCellCharge + cellCharge[i];
+            }
+            */
         }
 
         
@@ -87,6 +95,9 @@ public class PowerCellMover : MonoBehaviour
         }
 
     }
+
+
+     
 
 
     
