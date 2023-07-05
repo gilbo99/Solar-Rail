@@ -6,7 +6,7 @@ public class PowerCellMover : MonoBehaviour
 {
     public int PowerCellSegment = 0;
     public List<float> CellCharge;
-
+    public GameObject sliderUI;
     public float BatteryCharge;
 
 
@@ -43,22 +43,27 @@ public class PowerCellMover : MonoBehaviour
             BatteryCharge = CellCharge[PowerCellSegment];
 
         }
+        
 
+        transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+        
         if (Input.GetKey("w"))
         {
 
             BatteryCharge += Time.deltaTime * 10;
             if (BatteryCharge > 100)
             {
-                Destroy(gameObject);
+                
             }
 
 
             CellCharge[PowerCellSegment] =+ BatteryCharge;
+
+            sliderUI.GetComponent<SliderManager>().BatterySlider(BatteryCharge, PowerCellSegment);
         }
 
         
-        transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+       
   
     }
 
