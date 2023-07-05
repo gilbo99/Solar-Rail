@@ -1089,14 +1089,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8642447155e82ae469a98582ae662a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 0.5
-  PowerCellSegment: 1
-  CellCharge1: 0
-  CellCharge2: 0
-  CellCharge3: 0
-  CellCharge4: 0
-  CellCharge5: 0
-  CellCharge6: 0
+  PowerCellSegment: 0
+  CellCharge:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  BatteryCharge: 0
 --- !u!136 &644400137
 CapsuleCollider:
   m_ObjectHideFlags: 0

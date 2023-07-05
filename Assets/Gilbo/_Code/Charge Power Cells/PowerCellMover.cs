@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class PowerCellMover : MonoBehaviour
 {
-    public float rotateSpeed = 0.5f;
-    public int PowerCellSegment = 1;
+    public int PowerCellSegment = 0;
+    public List<float> CellCharge;
 
-    public float CellCharge1;
-    public float CellCharge2;
-    public float CellCharge3;
-    public float CellCharge4;
-    public float CellCharge5;
-    public float CellCharge6;
-    
+    public float BatteryCharge;
+
+
 
     private Quaternion camRotation;
     // Start is called before the first frame update
     void Start()
     {
-
+        
         camRotation = transform.localRotation;
 
         camRotation.x = 90f;
@@ -36,59 +32,59 @@ public class PowerCellMover : MonoBehaviour
         if (Input.GetKeyDown("d"))
         {
             camRotation.x += 60f;
+            PowerCellRotation(1);
+            BatteryCharge = CellCharge[PowerCellSegment];
         }
 
         if (Input.GetKeyDown("a"))
         {
             camRotation.x -= 60f;
+            PowerCellRotation(-1);
+            BatteryCharge = CellCharge[PowerCellSegment];
 
         }
 
         if (Input.GetKey("w"))
         {
-            
+
+            BatteryCharge += Time.deltaTime * 10;
+            if (BatteryCharge > 100)
+            {
+                Destroy(gameObject);
+            }
+
+
+            CellCharge[PowerCellSegment] =+ BatteryCharge;
         }
 
         
-
-
-
-
-
-
         transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-
-
-
+  
     }
-    /*
-    void PowerCellRotation()
+
+    void PowerCellRotation(int listadd)
     {
-        if (powerCellSegment == 0)
+
+
+        PowerCellSegment += listadd;
+
+
+        if(PowerCellSegment == 6)
         {
             PowerCellSegment = 0;
-        } else
-        {
-            powerCellSegment++;
         }
+        if (PowerCellSegment == -1)
+        {
+            PowerCellSegment = 5;
+        }
+
+
     }
 
-    void ChargePowerCellSegment()
-    {
-        list.PowerCellSegmentLevel[PowerCellSegment] ++ 1;
-    }
-
-    //UPDATE
-
-    if(powerCellSegmentLevel[powerCellSegment] > 10)
-    {
-        // FAILL
-    }
-
-   */
-
-       
     
+
+
+
 
 }
 
