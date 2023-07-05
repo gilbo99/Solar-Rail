@@ -8,6 +8,7 @@ public class PowerCellMover : MonoBehaviour
     public List<float> CellCharge;
     public GameObject sliderUI;
     public float BatteryCharge;
+  
 
 
 
@@ -15,12 +16,12 @@ public class PowerCellMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         camRotation = transform.localRotation;
-
         camRotation.x = 90f;
-
-        
+    }
+    private void Awake()
+    {
+      
     }
 
 
@@ -34,6 +35,8 @@ public class PowerCellMover : MonoBehaviour
             camRotation.x += 60f;
             PowerCellRotation(1);
             BatteryCharge = CellCharge[PowerCellSegment];
+            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+            
         }
 
         if (Input.GetKeyDown("a"))
@@ -41,13 +44,13 @@ public class PowerCellMover : MonoBehaviour
             camRotation.x -= 60f;
             PowerCellRotation(-1);
             BatteryCharge = CellCharge[PowerCellSegment];
-
+            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+            
         }
-        
 
-        transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
         
-        if (Input.GetKey("w"))
+        
+        if (Input.GetKey("space"))
         {
 
             BatteryCharge += Time.deltaTime * 10;
@@ -59,7 +62,7 @@ public class PowerCellMover : MonoBehaviour
 
             CellCharge[PowerCellSegment] =+ BatteryCharge;
 
-            sliderUI.GetComponent<SliderManager>().BatterySlider(BatteryCharge, PowerCellSegment);
+            sliderUI.GetComponent<UpdateUIInteract>().BatterySlider(BatteryCharge, PowerCellSegment);
         }
 
         
@@ -83,10 +86,12 @@ public class PowerCellMover : MonoBehaviour
             PowerCellSegment = 5;
         }
 
-
     }
 
+
     
+
+
 
 
 

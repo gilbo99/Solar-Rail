@@ -156,7 +156,7 @@ Transform:
   - {fileID: 724978754}
   - {fileID: 1884399711}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &20487619
 GameObject:
@@ -536,7 +536,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -776,9 +776,6 @@ GameObject:
   m_Component:
   - component: {fileID: 228588713}
   - component: {fileID: 228588712}
-  - component: {fileID: 228588714}
-  - component: {fileID: 228588715}
-  - component: {fileID: 228588716}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -811,59 +808,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &228588714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228588711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df4799d470abd440aa68a6880877d91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Solar: {fileID: 775859837}
-  Solar2: {fileID: 1003864837}
-  Solar3: {fileID: 821923920}
-  sunRotate: {fileID: 724978753}
-  battery: {fileID: 799324099}
-  batteryText: {fileID: 1199228673}
-  toggle: 1
-  Randomrotate: 0
-  Rotationx: 0
-  BatteryCharge: 0
-  Sun: {fileID: 1286441233}
---- !u!114 &228588715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228588711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb1d3fc0e1ca97438935a49d049cb12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: {fileID: 231795617}
---- !u!114 &228588716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228588711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b2464557331d244ade9129729b9dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PowerCell: {fileID: 644400135}
-  PowerCelloff: 0
-  rotateSpeed: 0.5
 --- !u!1 &231795615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,14 +1146,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 449407198}
-  - component: {fileID: 449407199}
   m_Layer: 0
   m_Name: BatterySliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &449407198
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,25 +1174,6 @@ Transform:
   m_Father: {fileID: 1806072254}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &449407199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449407197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43db7277d1892d440bc2f159bf61e516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderList:
-  - {fileID: 1524816057}
-  - {fileID: 60502598}
-  - {fileID: 851643783}
-  - {fileID: 111581141}
-  - {fileID: 625223519}
-  - {fileID: 206965765}
 --- !u!1001 &493358109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,7 +1483,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1814,7 +1740,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  sliderUI: {fileID: 449407197}
+  sliderUI: {fileID: 1221495560}
   BatteryCharge: 0
 --- !u!136 &644400137
 CapsuleCollider:
@@ -1888,13 +1814,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644400135}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.873, y: 4.118, z: -1.172999}
+  m_LocalPosition: {x: -0.87300014, y: 4.118, z: -1.1729989}
   m_LocalScale: {x: 0.44860885, y: 0.4486089, z: 0.4486089}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 177407440}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
 --- !u!1 &654977881
 GameObject:
@@ -2053,7 +1979,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2376,7 +2302,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2504,7 +2430,7 @@ PrefabInstance:
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: gameM
       value: 
-      objectReference: {fileID: 228588711}
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: maxRotation
       value: 60
@@ -2963,6 +2889,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207093273}
   m_CullTransparentMesh: 1
+--- !u!1 &1221495560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221495564}
+  - component: {fileID: 1221495563}
+  - component: {fileID: 1221495562}
+  - component: {fileID: 1221495561}
+  m_Layer: 0
+  m_Name: MiniGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1221495561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221495560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb1d3fc0e1ca97438935a49d049cb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: {fileID: 231795617}
+  sliderList:
+  - {fileID: 1524816057}
+  - {fileID: 60502598}
+  - {fileID: 851643783}
+  - {fileID: 111581141}
+  - {fileID: 625223519}
+  - {fileID: 206965765}
+--- !u!114 &1221495562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221495560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b2464557331d244ade9129729b9dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerCell: {fileID: 644400135}
+  sliderUItoggle: {fileID: 449407197}
+  PowerCelloff: 0
+  rotateSpeed: 0.5
+--- !u!114 &1221495563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221495560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df4799d470abd440aa68a6880877d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Solar: {fileID: 775859837}
+  Solar2: {fileID: 1003864837}
+  Solar3: {fileID: 821923920}
+  sunRotate: {fileID: 724978753}
+  battery: {fileID: 799324099}
+  batteryText: {fileID: 1199228673}
+  toggle: 1
+  Randomrotate: 0
+  Rotationx: 0
+  BatteryCharge: 0
+  Sun: {fileID: 1286441233}
+--- !u!4 &1221495564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221495560}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.591593, y: 0.37550163, z: -4.283848}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225370898
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,7 +3053,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3366,7 +3385,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475343867
 GameObject:
@@ -3575,7 +3594,7 @@ PrefabInstance:
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: UIUpdater
       value: 
-      objectReference: {fileID: 228588711}
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: minigameCam
       value: 
@@ -3749,7 +3768,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1654783390
 GameObject:
@@ -4059,7 +4078,7 @@ PrefabInstance:
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: gameM
       value: 
-      objectReference: {fileID: 228588711}
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: maxRotation
       value: 60
@@ -4194,7 +4213,7 @@ PrefabInstance:
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: gameM
       value: 
-      objectReference: {fileID: 228588711}
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 3318737656355023510, guid: d4927fdcd554fb14580deddf56ef5d1d, type: 3}
       propertyPath: maxRotation
       value: 60
@@ -4461,7 +4480,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4525,7 +4544,7 @@ PrefabInstance:
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: UIUpdater
       value: 
-      objectReference: {fileID: 228588711}
+      objectReference: {fileID: 1221495560}
     - target: {fileID: 2662243759350280731, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: minigameCam
       value: 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PowerCellsManager : MonoBehaviour
 {
     public GameObject PowerCell;
+    public GameObject sliderUItoggle;
     public bool PowerCelloff = false;
 
     public float rotateSpeed = 0.5f;
@@ -29,6 +30,7 @@ public class PowerCellsManager : MonoBehaviour
         PowerCelloff = !PowerCelloff;
 
         PowerCell.GetComponent<PowerCellMover>().enabled = PowerCelloff;
+        sliderUItoggle.SetActive(PowerCelloff);
 
     }
 
