@@ -16,10 +16,19 @@ public class SolarManager : MonoBehaviour
     public float Rotationx;
     public float BatteryCharge;
     public GameObject Sun;
-    
+    public GameObject UIManager;
+
+    public List<string> objective;
+
+
+
+
+
+    private UIManager uiUpdate;
 
     public void Start()
     {
+        uiUpdate = UIManager.GetComponent<UIManager>();
         ToggleSolarGame();
         EventBus.Current.SolarPanelToggle += ToggleSolarGame;
 
@@ -63,6 +72,17 @@ public class SolarManager : MonoBehaviour
 
         Randomrotate = Random.Range(50, -50);
         sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
+
+        if (toggle)
+        {
+            uiUpdate.ObjectiveUpdate(objective[0], objective[1], objective[2] , objective[3]);
+        }
+        else
+        {
+            uiUpdate.ObjectiveUpdate("", "", "", "");
+        }
+
+
 
     }
 
