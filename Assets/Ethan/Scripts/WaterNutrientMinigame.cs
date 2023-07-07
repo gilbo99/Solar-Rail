@@ -7,8 +7,9 @@ public class WaterNutrientMinigame : MonoBehaviour
 {
     // MANAGER CONNECTIONS
 
-    public gameObject GameManager;
-    public gameObject uiManager;
+    public GameObject UIManager;
+    private UIManager uiUpdate;
+    
 
     // GLOBAL UI SCRIPT VARIABLES
 
@@ -17,9 +18,13 @@ public class WaterNutrientMinigame : MonoBehaviour
     public string minigameObjectiveBodyLine2;
     public string minigameObjectiveBodyLine3;
 
+    public string controls1;
+    public string controls2;
+    public string controls3;
+
     // NUTRIENT MONITOR DISPLAY
 
-    public gameObject nutrientsMonitorScreen;
+    public GameObject nutrientsMonitorScreen;
 
     // WATER TANK GLOBAL VARIABLES
 
@@ -27,6 +32,7 @@ public class WaterNutrientMinigame : MonoBehaviour
     public int watertankCapacity = 0;
     public bool nutrientsOptimised = false;
     public bool allowInput = false;
+    public bool gameActive = false;
 
     // WATER TANK DROP VARIABLES
 
@@ -43,6 +49,10 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     void Start()
     {
+        gameActive = true;
+
+        uiUpdate = UIManager.GetComponent<UIManager>();
+        
         switch (UnityEngine.Random.Range(0,2))
         {
             case 0:
@@ -60,21 +70,38 @@ public class WaterNutrientMinigame : MonoBehaviour
         }
 
         // UPDATE UI
+        
         minigameObjectiveHeader = "Add drops of Nutrients to make a mix of what is missing from the water tank.";
-        minigameObjectiveBodyLine1 = "PRESS 1 to add a drop of Cyan coloured nutrients.";
-        minigameObjectiveBodyLine2 = "PRESS 2 to add a drop of Magenta coloured nutrients.";
-        minigameObjectiveBodyLine3 = "PRESS 3 to add a drop of Yellow coloured nutrients.";
-        // SendUIObjectives();
+        minigameObjectiveBodyLine1 = "• Correct the balance of nutrients with the dispenser.";
+        minigameObjectiveBodyLine2 = "• The display indicates you're missing the " + watertankNutrientGoal + " compound.";
+        minigameObjectiveBodyLine3 = "• Click the buttons below to add nutrients.";
 
+        controls1 = null;
+        controls2 = "Click the buttons below to add nutrients.";
+        controls3 = null;
+
+        // SEND OBJECTIVES TO MANAGERS
+
+        if(gameActive)
+        {
+        uiUpdate.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
+        iuManager.ButtonUpdate(controls1, controls2, controls3);
+        uiUpdate.borderChange(color);
         allowInput = true;
+        } else {
+        
+        }
     }
 
     void Update()
     {
+        
         // ADD CYAN DROP BY PRESSING 1
         if (Input.GetKey("1"))
         {
             AddCyanDrop();
+           // uiManager.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
+            //uiManager.ButtonUpdate(controls1, controls2, controls3);
         }
 
         // ADD MAGENTA BY WITH PRESSING 2
@@ -90,11 +117,6 @@ public class WaterNutrientMinigame : MonoBehaviour
         }
 
     }
-
-    // private void SendUIObjectives()
-    // {
-    //     uiManager.GetComponent<SCRIPTNAME>().RecieveObjective(minigameObjectiveHeader,  minigameObjectiveBodyLine1, //minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
-    // }
 
     public void AddCyanDrop()
     {
@@ -163,6 +185,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // OrangeGoalUI.SetActive(false);
+                gameActive = false;
                 break;
 
             case "Green":
@@ -180,6 +203,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // GreenGoalUI.SetActive(false);
+                gameActive = false;
                 break;
 
             case "Purple":
@@ -197,6 +221,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // PurpleGoalUI.SetActive(false);
+                gameActive = false;
                 break;
         }
     }
