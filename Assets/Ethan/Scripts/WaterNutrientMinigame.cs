@@ -5,14 +5,21 @@ using UnityEngine;
 
 public class WaterNutrientMinigame : MonoBehaviour
 {
-    // add UI CONNECTION //public GameObject uiManager;
+    // MANAGER CONNECTIONS
 
-    // GLOBAL UI SCRIPT CONNECTION
+    public gameObject GameManager;
+    public gameObject uiManager;
+
+    // GLOBAL UI SCRIPT VARIABLES
 
     public string minigameObjectiveHeader;
     public string minigameObjectiveBodyLine1;
     public string minigameObjectiveBodyLine2;
     public string minigameObjectiveBodyLine3;
+
+    // NUTRIENT MONITOR DISPLAY
+
+    public gameObject nutrientsMonitorScreen;
 
     // WATER TANK GLOBAL VARIABLES
 
@@ -67,7 +74,31 @@ public class WaterNutrientMinigame : MonoBehaviour
         // ADD CYAN DROP BY PRESSING 1
         if (Input.GetKey("1"))
         {
-            if (watertankDrop1 == "Empty")
+            AddCyanDrop();
+        }
+
+        // ADD MAGENTA BY WITH PRESSING 2
+        if (Input.GetKey("2"))
+        {
+            AddMagentaDrop();
+        }
+
+        // ADD YELLOW DROP BY PRESSING 3
+        if (Input.GetKey("3"))
+        {
+            AddYellowDrop();
+        }
+
+    }
+
+    // private void SendUIObjectives()
+    // {
+    //     uiManager.GetComponent<SCRIPTNAME>().RecieveObjective(minigameObjectiveHeader,  minigameObjectiveBodyLine1, //minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
+    // }
+
+    public void AddCyanDrop()
+    {
+        if (watertankDrop1 == "Empty")
             {
                 watertankDrop1 = "Cyan";
                 print("You add a drop of Cyan coloured nutrients.");
@@ -79,12 +110,11 @@ public class WaterNutrientMinigame : MonoBehaviour
                 allowInput = false;
                 SolveNutrients();
             }
-        }
+    }
 
-        // ADD MAGENTA BY WITH PRESSING 2
-        if (Input.GetKey("2"))
-        {
-            if (watertankDrop1 == "Empty")
+    public void AddMagentaDrop()
+    {
+        if (watertankDrop1 == "Empty")
             {
                 watertankDrop1 = "Magenta";
                 print("You add a drop of Magenta coloured nutrients.");
@@ -96,12 +126,11 @@ public class WaterNutrientMinigame : MonoBehaviour
                 allowInput = false;
                 SolveNutrients();
             }
-        }
+    }
 
-        // ADD YELLOW DROP BY PRESSING 3
-        if (Input.GetKey("3"))
-        {
-            if (watertankDrop1 == "Empty")
+    public void AddYellowDrop()
+    {
+        if (watertankDrop1 == "Empty")
             {
                 watertankDrop1 = "Yellow";
                 print("You add a drop of Yellow coloured nutrients.");
@@ -113,14 +142,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 allowInput = false;
                 SolveNutrients();
             }
-        }
-
     }
-
-    // private void SendUIObjectives()
-    // {
-    //     uiManager.GetComponent<SCRIPTNAME>().RecieveObjective(minigameObjectiveHeader,  minigameObjectiveBodyLine1, //minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
-    // }
 
     public void SolveNutrients()
     {
