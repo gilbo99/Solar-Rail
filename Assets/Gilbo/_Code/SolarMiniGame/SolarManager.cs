@@ -41,7 +41,7 @@ public class SolarManager : MonoBehaviour
         {
             Sun.SetActive(true);
             BatteryCharge += Time.deltaTime * 10;
-            if(BatteryCharge > 100) 
+            if(BatteryCharge > BatteryCharge) 
             {
                 BatteryCharge = 100;
             }
