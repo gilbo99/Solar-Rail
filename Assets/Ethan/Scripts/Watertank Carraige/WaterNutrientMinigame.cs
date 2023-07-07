@@ -22,6 +22,8 @@ public class WaterNutrientMinigame : MonoBehaviour
     public string controls2;
     public string controls3;
 
+    public Color32 colour;
+
     // NUTRIENT MONITOR DISPLAY
 
     public GameObject nutrientsMonitorScreen;
@@ -50,7 +52,7 @@ public class WaterNutrientMinigame : MonoBehaviour
     void Start()
     {
         gameActive = true;
-
+        
         uiUpdate = UIManager.GetComponent<UIManager>();
         
         switch (UnityEngine.Random.Range(0,2))
@@ -71,10 +73,10 @@ public class WaterNutrientMinigame : MonoBehaviour
 
         // UPDATE UI
         
-        minigameObjectiveHeader = "Add drops of Nutrients to make a mix of what is missing from the water tank.";
+        minigameObjectiveHeader = "ADD CHEMICALS TO CORRECT THE NUTRIENTS IMBALANCE IN THE WATER TANK";
         minigameObjectiveBodyLine1 = "• Correct the balance of nutrients with the dispenser.";
         minigameObjectiveBodyLine2 = "• The display indicates you're missing the " + watertankNutrientGoal + " compound.";
-        minigameObjectiveBodyLine3 = "• Click the buttons below to add nutrients.";
+        minigameObjectiveBodyLine3 = null;
 
         controls1 = null;
         controls2 = "Click the buttons below to add nutrients.";
@@ -82,15 +84,7 @@ public class WaterNutrientMinigame : MonoBehaviour
 
         // SEND OBJECTIVES TO MANAGERS
 
-        if(gameActive)
-        {
-        uiUpdate.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
-        iuManager.ButtonUpdate(controls1, controls2, controls3);
-        uiUpdate.borderChange(color);
-        allowInput = true;
-        } else {
         
-        }
     }
 
     void Update()
@@ -100,8 +94,6 @@ public class WaterNutrientMinigame : MonoBehaviour
         if (Input.GetKey("1"))
         {
             AddCyanDrop();
-           // uiManager.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
-            //uiManager.ButtonUpdate(controls1, controls2, controls3);
         }
 
         // ADD MAGENTA BY WITH PRESSING 2
@@ -225,4 +217,20 @@ public class WaterNutrientMinigame : MonoBehaviour
                 break;
         }
     }
+
+    void UpdateUI()
+    {
+        if(gameActive)
+        {
+            uiUpdate.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
+            uiUpdate.ButtonUpdate(controls1, controls2, controls3);
+            uiUpdate.borderChange(colour);
+            allowInput = true;
+        } else {
+            Color32 color2 = new Color32(225, 255, 0, 0);
+            uiUpdate.ObjectiveUpdate("", "", "", "");
+            uiUpdate.ButtonUpdate("","","");
+            uiUpdate.borderChange(color2);
+        }
+    } 
 }

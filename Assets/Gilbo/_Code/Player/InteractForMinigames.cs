@@ -96,6 +96,10 @@ public class InteractForMinigames : MonoBehaviour
                 EventBus.Current.PowerCellsToggleTrigger();
                 SwitchCam();
                 break;
+            
+            case "Water Nutrients":
+                SwitchCam();
+                break;
 
 
         }
