@@ -19,6 +19,7 @@ public class PowerCellMover : MonoBehaviour
     {
         camRotation = transform.localRotation;
         camRotation.x = 90f;
+        randomCharge = Random.Range(10, 50);
     }
  
     // Update is called once per frame
