@@ -10,7 +10,7 @@ public class Mainmenu : MonoBehaviour
     
     public GameObject levelSelect;
     private int levelCount;
-    private bool toggle = false;
+    public bool toggle = false;
     public void Play()
     {
        
