@@ -13,7 +13,7 @@ public class Mainmenu : MonoBehaviour
     public bool toggle = false;
     public void Play()
     {
-       
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void LevelSelect()
