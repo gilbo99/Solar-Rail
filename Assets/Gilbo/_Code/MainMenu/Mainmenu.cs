@@ -10,7 +10,8 @@ public class Mainmenu : MonoBehaviour
     
     public GameObject levelSelect;
     private int levelCount;
-    public bool toggle = false;
+    private bool toggle = false;
+    private int screenMode;
     public void Play()
     {
         SceneManager.LoadSceneAsync(1);
@@ -29,9 +30,10 @@ public class Mainmenu : MonoBehaviour
     }
 
 
-    public void HandleInputData(int val)
+    public void NewSceneData(int val)
     {
         levelCount = val;
+        print(val);
     }
 
     public void StartNewScene()
@@ -41,10 +43,30 @@ public class Mainmenu : MonoBehaviour
 
     }
 
-
-    public void FullScreen()
+    public void FullScreenToggle(bool Tick)
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        Screen.fullScreenMode = (FullScreenMode)screenMode;
+        Screen.fullScreen = Tick;
     }
+    public void Screenset()
+    {
+
+            Screen.fullScreenMode = (FullScreenMode)screenMode;
+      
+        
+    }
+
+
+    public void ScreenData(int val)
+    {
+
+        screenMode = val;
+
+    }
+
+
+
+
+
 
 }
