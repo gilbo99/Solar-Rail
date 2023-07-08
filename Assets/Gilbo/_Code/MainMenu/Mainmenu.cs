@@ -40,4 +40,11 @@ public class Mainmenu : MonoBehaviour
        
 
     }
+
+
+    public void FullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
 }
