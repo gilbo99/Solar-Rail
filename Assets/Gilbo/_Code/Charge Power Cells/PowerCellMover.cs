@@ -65,14 +65,17 @@ public class PowerCellMover : MonoBehaviour
             sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
         }
 
-        if(Input.GetKey("space"))
+        if(Input.GetKeyDown("space"))
         {
-            /*
-            for (i = < 7, i = 0, i++)
+            
+            for (int i = 0; i < cellCharge.Count; i++)
             {
-                confirmedPowerCellCharge + cellCharge[i];
+                confirmedPowerCellCharge += cellCharge[i];
+                cellCharge[i] = 0;
+                BatteryCharge = 0;
+                sliderUI.GetComponent<UIManager>().BatterySlider(0, i);
             }
-            */
+            
         }
 
         

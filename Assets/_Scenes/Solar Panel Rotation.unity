@@ -3551,9 +3551,10 @@ MonoBehaviour:
   sunRotate: {fileID: 724978753}
   battery: {fileID: 799324099}
   batteryText: {fileID: 1199228673}
-  BatteryCharge: 0
   Sun: {fileID: 1286441233}
   UIManager: {fileID: 1221495560}
+  setTimer: 300
+  BatteryCharge: 0
   color:
     serializedVersion: 2
     rgba: 4278930767

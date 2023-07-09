@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SolarManager : MonoBehaviour
@@ -11,12 +12,16 @@ public class SolarManager : MonoBehaviour
     public GameObject sunRotate;
     public GameObject battery;
     public GameObject batteryText;
-    private bool toggle = true;
-    private int Randomrotate;
-    private float Rotationx;
-    public float BatteryCharge;
     public GameObject Sun;
     public GameObject UIManager;
+
+    private bool toggle = true;
+    private int Randomrotate;
+    private float timer;
+    public float setTimer;
+    private float Rotationx;
+    public float BatteryCharge;
+  
     public Color32 color;
 
     public List<string> objective;
@@ -30,18 +35,20 @@ public class SolarManager : MonoBehaviour
 
     public void Start()
     {
+
         uiUpdate = UIManager.GetComponent<UIManager>();
         ToggleSolarGame();
         EventBus.Current.SolarPanelToggle += ToggleSolarGame;
+        SetSunRotate();
 
     }
     void Update()
     {
-        if (Rotationx < Randomrotate - 10f & Rotationx > Randomrotate - 30f & toggle)
+        if (Rotationx < Randomrotate - 10f & Rotationx > Randomrotate - 30f)
         {
             Sun.SetActive(true);
             BatteryCharge += Time.deltaTime * 10;
-            if(BatteryCharge > BatteryCharge) 
+            if(BatteryCharge > 100) 
             {
                 BatteryCharge = 100;
             }
@@ -54,14 +61,33 @@ public class SolarManager : MonoBehaviour
         }
 
 
+        
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                SetSunRotate();
+                timer = setTimer;
+            }
+        
 
+
+
+        /*
         if(BatteryCharge > 30)
         BatteryCharge -= Time.deltaTime;
         battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
+        */
 
     }
 
-   
+    private void SetSunRotate()
+    {
+        Randomrotate = Random.Range(50, -50);
+        sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
+    }
 
 
     void ToggleSolarGame()
@@ -72,8 +98,7 @@ public class SolarManager : MonoBehaviour
         Solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         batteryText.SetActive(toggle);
 
-        Randomrotate = Random.Range(50, -50);
-        sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
+        
 
         if (toggle)
         {
@@ -101,8 +126,10 @@ public class SolarManager : MonoBehaviour
         Rotationx = receivedRotationx;
         
 
-
     }
+
+
+    
 
     void OnDestroy()
     {
