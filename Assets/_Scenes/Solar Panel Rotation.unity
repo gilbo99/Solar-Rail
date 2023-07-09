@@ -1859,6 +1859,8 @@ MonoBehaviour:
   BatteryCharge: 0
   randomCharge: 0
   confirmedPowerCellCharge: 0
+  SolarManager: {fileID: 1221495560}
+  facingsun: 0
 --- !u!136 &644400137
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3545,14 +3547,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df4799d470abd440aa68a6880877d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solar: {fileID: 775859837}
-  Solar2: {fileID: 1003864837}
-  Solar3: {fileID: 821923920}
+  solar: {fileID: 775859837}
+  solar2: {fileID: 1003864837}
+  solar3: {fileID: 821923920}
   sunRotate: {fileID: 724978753}
   battery: {fileID: 799324099}
   batteryText: {fileID: 1199228673}
-  Sun: {fileID: 1286441233}
+  sun: {fileID: 1286441233}
   UIManager: {fileID: 1221495560}
+  timer: 0
   setTimer: 300
   BatteryCharge: 0
   color:
