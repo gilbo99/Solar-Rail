@@ -64,7 +64,7 @@ public class PowerCellMover : MonoBehaviour
                 BatteryCharge += Time.deltaTime * randomCharge;
                 if (BatteryCharge > 100)
                 {
-
+                    BatteryCharge = 100; 
                 }
 
 
