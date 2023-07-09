@@ -10,76 +10,87 @@ public class PowerCellMover : MonoBehaviour
     public float BatteryCharge;
     public float randomCharge;
     public float confirmedPowerCellCharge;
+    public GameObject SolarManager;
+    public bool facingsun;
 
 
 
 
     private Quaternion camRotation;
-
+    
     void Start()
     {
+        
         camRotation = transform.localRotation;
         camRotation.x = 90f;
         randomCharge = Random.Range(10, 50);
     }
- 
+    public void OnEnable()
+    {
+        facingsun = SolarManager.GetComponent<SolarManager>().AbletoCharge(confirmedPowerCellCharge);
+    }
+
     // Update is called once per frame
     void Update()
     {
 
-
-        if (Input.GetKeyDown("d"))
+        if (facingsun)
         {
-            camRotation.x += 60f;
-            PowerCellRotation(1);
-            BatteryCharge = cellCharge[PowerCellSegment];
-            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-            randomCharge = Random.Range(10, 50);
-            
-        }
-
-        if (Input.GetKeyDown("a"))
-        {
-            camRotation.x -= 60f;
-            PowerCellRotation(-1);
-            BatteryCharge = cellCharge[PowerCellSegment];
-            transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-
-            
-        }
-
-        
-        
-        if (Input.GetKey("w"))
-        {
-
-            BatteryCharge += Time.deltaTime * randomCharge;
-            if (BatteryCharge > 100)
+            if (Input.GetKeyDown("d"))
             {
-              
+                camRotation.x += 60f;
+                PowerCellRotation(1);
+                BatteryCharge = cellCharge[PowerCellSegment];
+                transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+                randomCharge = Random.Range(10, 50);
+
+            }
+
+            if (Input.GetKeyDown("a"))
+            {
+                camRotation.x -= 60f;
+                PowerCellRotation(-1);
+                BatteryCharge = cellCharge[PowerCellSegment];
+                transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+
+
             }
 
 
-            cellCharge[PowerCellSegment] =+ BatteryCharge;
 
-            sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
-        }
-
-        if(Input.GetKeyDown("space"))
-        {
-            
-            for (int i = 0; i < cellCharge.Count; i++)
+            if (Input.GetKey("w"))
             {
-                confirmedPowerCellCharge += cellCharge[i];
-                cellCharge[i] = 0;
-                BatteryCharge = 0;
-                sliderUI.GetComponent<UIManager>().BatterySlider(0, i);
-            }
-            
-        }
 
-        
-       
+                BatteryCharge += Time.deltaTime * randomCharge;
+                if (BatteryCharge > 100)
+                {
+
+                }
+
+
+                cellCharge[PowerCellSegment] = +BatteryCharge;
+
+                sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
+            }
+
+            if (Input.GetKeyDown("space"))
+            {
+
+                for (int i = 0; i < cellCharge.Count; i++)
+                {
+                    confirmedPowerCellCharge += cellCharge[i];
+                    cellCharge[i] = 0;
+                    BatteryCharge = 0;
+                    sliderUI.GetComponent<UIManager>().BatterySlider(0, i);
+                }
+
+                facingsun = SolarManager.GetComponent<SolarManager>().AbletoCharge(confirmedPowerCellCharge);
+
+
+            }
+
+
+        }
   
     }
 
@@ -104,7 +115,7 @@ public class PowerCellMover : MonoBehaviour
 
      
 
-
+    
     
 
 

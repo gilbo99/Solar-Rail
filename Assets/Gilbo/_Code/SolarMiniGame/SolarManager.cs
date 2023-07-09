@@ -16,6 +16,7 @@ public class SolarManager : MonoBehaviour
     public GameObject UIManager;
 
     private bool toggle = true;
+    private bool facingSun;
     private int Randomrotate;
     private float timer;
     public float setTimer;
@@ -47,16 +48,13 @@ public class SolarManager : MonoBehaviour
         if (Rotationx < Randomrotate - 10f & Rotationx > Randomrotate - 30f)
         {
             Sun.SetActive(true);
-            BatteryCharge += Time.deltaTime * 10;
-            if(BatteryCharge > 100) 
-            {
-                BatteryCharge = 100;
-            }
+            facingSun = true;
 
-            battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
+            
 
         }else
         {
+            facingSun = false;
             Sun.SetActive(false);
         }
 
@@ -108,10 +106,10 @@ public class SolarManager : MonoBehaviour
         }
         else
         {
-            Color32 color2 = new Color32(225, 255, 0, 0);
+            Color32 setInvis = new Color32(225, 255, 0, 0);
             uiUpdate.ObjectiveUpdate("", "", "", "");
             uiUpdate.ButtonUpdate("","","");
-            uiUpdate.borderChange(color2);
+            uiUpdate.borderChange(setInvis);
 
         }
 
@@ -128,8 +126,15 @@ public class SolarManager : MonoBehaviour
 
     }
 
+    public bool AbletoCharge(float val)
+    {
+        BatteryCharge = val;
+        battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
+        return facingSun;
+    }
 
-    
+
+
 
     void OnDestroy()
     {
