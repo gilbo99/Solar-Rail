@@ -8,6 +8,8 @@ public class PickUp : MonoBehaviour
 {
     public GameObject pickup;
     public GameObject playerInventory;
+    public Vector3 ItemLocation;
+    public int pickupID;
 
     private bool isPickup = true;
     public bool playerin;
@@ -25,9 +27,11 @@ public class PickUp : MonoBehaviour
         {
             isPickup = !isPickup;
             inventory.Additems(pickup);
+            pickup.transform.position = ItemLocation;
             pickup.SetActive(isPickup);
-
-        }else if(Input.GetKeyDown(KeyCode.F) & playerin & isPickup == false)
+           
+        }
+        else if(Input.GetKeyDown(KeyCode.F) & playerin & isPickup == false)
         {
             isPickup = !isPickup;
             inventory.RemoveItems(pickup);
@@ -55,6 +59,9 @@ public class PickUp : MonoBehaviour
     {
         playerin = false;
     }
+
+
+    
 }
 
 
