@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEngine.UI;
+using UnityEngine.Rendering;
+using System.Drawing;
 
 public class Mainmenu : MonoBehaviour
 {
@@ -12,6 +15,9 @@ public class Mainmenu : MonoBehaviour
     private int levelCount;
     private bool toggle = false;
     private int screenMode;
+    public string newSelectedValue = "Solar Panel Rotation";
+
+
     public void Play()
     {
         SceneManager.LoadSceneAsync(1);
@@ -30,17 +36,15 @@ public class Mainmenu : MonoBehaviour
     }
 
 
-    public void NewSceneData(int val)
+    public void NewSceneData(TMP_Dropdown dropdown)
     {
-        levelCount = val;
-        print(val);
+        int newSelectedIndex = dropdown.value;
+        newSelectedValue = dropdown.options[newSelectedIndex].text;
     }
 
     public void StartNewScene()
     {
-        SceneManager.LoadSceneAsync(levelCount);
-       
-
+        SceneManager.LoadSceneAsync(newSelectedValue);
     }
 
     public void FullScreenToggle(bool Tick)
@@ -50,10 +54,7 @@ public class Mainmenu : MonoBehaviour
     }
     public void Screenset()
     {
-
             Screen.fullScreenMode = (FullScreenMode)screenMode;
-      
-        
     }
 
 
@@ -64,8 +65,11 @@ public class Mainmenu : MonoBehaviour
 
     }
 
+   
 
 
+
+   
 
 
 

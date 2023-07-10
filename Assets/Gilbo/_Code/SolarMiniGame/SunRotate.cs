@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SunRotate : MonoBehaviour
 {
-    public float RotateZ;
+    public float rotateZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +14,12 @@ public class SunRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localRotation = Quaternion.Euler(0, 0, RotateZ);
+        transform.localRotation = Quaternion.Euler(0, 0, rotateZ);
     }
 
     public void RotateSun(float _RotateZ)
     {
-        
-        RotateZ = -_RotateZ + 25f;
+
+        rotateZ = -_RotateZ + 25f;
     }
 }
