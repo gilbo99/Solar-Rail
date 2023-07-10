@@ -9,6 +9,7 @@ public class PickUp : MonoBehaviour
     public GameObject pickup;
     public GameObject playerInventory;
     public Vector3 ItemLocation;
+    public int pickupID;
 
     private bool isPickup = true;
     public bool playerin;
@@ -60,10 +61,7 @@ public class PickUp : MonoBehaviour
     }
 
 
-    public void PickupLocation(int val)
-    {
-
-    }
+    
 }
 
 
