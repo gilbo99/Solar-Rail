@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PowerCellMover : MonoBehaviour
 {
-    public int PowerCellSegment = 0;
+    public int powerCellSegment = 0;
     public List<float> cellCharge;
     public GameObject sliderUI;
-    public float BatteryCharge;
+    
+    public float batteryCharge;
     public float randomCharge;
     public float confirmedPowerCellCharge;
     public GameObject SolarManager;
@@ -40,9 +41,9 @@ public class PowerCellMover : MonoBehaviour
             {
                 camRotation.x += 60f;
                 PowerCellRotation(1);
-                BatteryCharge = cellCharge[PowerCellSegment];
+                batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-                randomCharge = Random.Range(10, 50);
+                randomCharge = Random.Range(20, 50);
 
             }
 
@@ -50,7 +51,7 @@ public class PowerCellMover : MonoBehaviour
             {
                 camRotation.x -= 60f;
                 PowerCellRotation(-1);
-                BatteryCharge = cellCharge[PowerCellSegment];
+                batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
 
 
@@ -61,16 +62,16 @@ public class PowerCellMover : MonoBehaviour
             if (Input.GetKey("w"))
             {
 
-                BatteryCharge += Time.deltaTime * randomCharge;
-                if (BatteryCharge > 100)
+                batteryCharge += Time.deltaTime * randomCharge;
+                if (batteryCharge > 100)
                 {
-                    BatteryCharge = 100; 
+                    batteryCharge = 100; 
                 }
 
 
-                cellCharge[PowerCellSegment] = +BatteryCharge;
+                cellCharge[powerCellSegment] = +batteryCharge;
 
-                sliderUI.GetComponent<UIManager>().BatterySlider(BatteryCharge, PowerCellSegment);
+                sliderUI.GetComponent<UIManager>().BatterySlider(batteryCharge, powerCellSegment);
             }
 
             if (Input.GetKeyDown("space"))
@@ -80,7 +81,7 @@ public class PowerCellMover : MonoBehaviour
                 {
                     confirmedPowerCellCharge += cellCharge[i];
                     cellCharge[i] = 0;
-                    BatteryCharge = 0;
+                    batteryCharge = 0;
                     sliderUI.GetComponent<UIManager>().BatterySlider(0, i);
                 }
 
@@ -98,16 +99,16 @@ public class PowerCellMover : MonoBehaviour
     {
 
 
-        PowerCellSegment += listadd;
+        powerCellSegment += listadd;
 
 
-        if(PowerCellSegment == 6)
+        if(powerCellSegment == 6)
         {
-            PowerCellSegment = 0;
+            powerCellSegment = 0;
         }
-        if (PowerCellSegment == -1)
+        if (powerCellSegment == -1)
         {
-            PowerCellSegment = 5;
+            powerCellSegment = 5;
         }
 
     }

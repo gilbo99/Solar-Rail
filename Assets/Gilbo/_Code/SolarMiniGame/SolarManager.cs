@@ -17,7 +17,7 @@ public class SolarManager : MonoBehaviour
 
     private bool toggle = true;
     private bool facingSun;
-    private int Randomrotate;
+    private int randomrotate;
     public float timer;
     public float setTimer;
     private float Rotationx;
@@ -36,22 +36,18 @@ public class SolarManager : MonoBehaviour
 
     private void Start()
     {
-
+        EventBus.Current.SolarPanelToggle += ToggleSolarGame;
         uiUpdate = UIManager.GetComponent<UIManager>();
         ToggleSolarGame();
-        EventBus.Current.SolarPanelToggle += ToggleSolarGame;
         SetSunRotate();
 
     }
     private void Update()
     {
-        if (Rotationx < Randomrotate - 10f & Rotationx > Randomrotate - 40f)
+        if (Rotationx < randomrotate - 10f & Rotationx > randomrotate - 40f)
         {
             sun.SetActive(true);
             facingSun = true;
-
-            
-
         }else
         {
             facingSun = false;
@@ -75,8 +71,8 @@ public class SolarManager : MonoBehaviour
 
     private void SetSunRotate()
     {
-        Randomrotate = Random.Range(100, -50);
-        sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(Randomrotate);
+        randomrotate = Random.Range(100, -50);
+        sunRotate.gameObject.transform.GetComponent<SunRotate>().RotateSun(randomrotate);
     }
 
 
@@ -102,7 +98,6 @@ public class SolarManager : MonoBehaviour
             uiUpdate.ObjectiveUpdate("", "", "", "");
             uiUpdate.ButtonUpdate("","","");
             uiUpdate.borderChange(setInvis);
-
         }
 
 
@@ -111,17 +106,14 @@ public class SolarManager : MonoBehaviour
 
     public void SetRotationx(float receivedRotationx)
     {
-
         if(Rotationx != receivedRotationx)
         Rotationx = receivedRotationx;
-        
-
     }
 
     public bool AbletoCharge(float val)
     {
         BatteryCharge = val;
-        battery.gameObject.GetComponent<Battery>().Charge(BatteryCharge);
+        battery.gameObject.GetComponent<Battery>().SetCharge(BatteryCharge);
         return facingSun;
     }
 

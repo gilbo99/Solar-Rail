@@ -7,7 +7,7 @@ public class SolarMovertop : MonoBehaviour
     public float rotateSpeed = 0.5f;
     public float maxRotation = -30;
     public float minRotation = -150;
-    public float RotationX;
+    public float rotationX;
     public GameObject gameM;
 
     private Quaternion camRotation;
@@ -24,15 +24,15 @@ public class SolarMovertop : MonoBehaviour
         if (Input.GetKey("a"))
         {
             camRotation.x += rotateSpeed;
-            RotationX = camRotation.x;
-            gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
+            rotationX = camRotation.x;
+            gameM.GetComponent<SolarManager>().SetRotationx(rotationX);
         }
 
         if (Input.GetKey("d"))
         {
             camRotation.x -= rotateSpeed;
-            RotationX = camRotation.x;
-            gameM.GetComponent<SolarManager>().SetRotationx(RotationX);
+            rotationX = camRotation.x;
+            gameM.GetComponent<SolarManager>().SetRotationx(rotationX);
         }
 
 
