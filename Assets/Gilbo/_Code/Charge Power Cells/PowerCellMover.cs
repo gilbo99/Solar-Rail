@@ -43,7 +43,7 @@ public class PowerCellMover : MonoBehaviour
                 PowerCellRotation(1);
                 batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
-                randomCharge = Random.Range(10, 50);
+                randomCharge = Random.Range(20, 50);
 
             }
 
