@@ -7,6 +7,7 @@ public class PowerCellMover : MonoBehaviour
     public int powerCellSegment = 0;
     public List<float> cellCharge;
     public GameObject sliderUI;
+    
     public float batteryCharge;
     public float randomCharge;
     public float confirmedPowerCellCharge;
