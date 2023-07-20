@@ -27,7 +27,7 @@ public class SolarMovertop : MonoBehaviour
             rotationX = camRotation.x;
             gameM.GetComponent<SolarManager>().SetRotationx(rotationX);
         }
-
+        
         if (Input.GetKey("d"))
         {
             camRotation.x -= rotateSpeed;
