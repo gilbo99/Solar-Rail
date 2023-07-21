@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class PlanterBox : MonoBehaviour
 {
+    public GameObject GreenhouseManager;
 
-    // PLANTER ID
+    // PLANTER ID FOR GREENHOUSE TO CONNECT TO
+    
+    public int planterboxID;
+
+    public float waterLevel;
+    
+    private bool beingWatered;
 
     // VARIABLE FOR TRACKING PLANTER INDIVIDUAL WATER
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // WHEN TRIGGER ENTER WATER FLOW ADD WATER LEVEL
+        if(beingWatered)
+        {
+            waterLevel = 1 * Time.deltaTime;
+        }
+    }
 
-        // WHEN LEAVE STOP ADDING WATER LEVEL
+    void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Water"))
+        {
+            beingWatered = true;
+        }
+    }
 
-        //
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Water"))
+        {
+            GreenhouseManager.FetchPlanterStatus(planterboxID, waterLevel);
+        }
     }
 }
