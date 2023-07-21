@@ -42,7 +42,7 @@ public class PowerCellMover : MonoBehaviour
                 camRotation.x += 60f;
                 PowerCellRotation(1);
                 batteryCharge = cellCharge[powerCellSegment];
-                transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+                transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
                 randomCharge = Random.Range(20, 50);
 
             }
@@ -52,7 +52,8 @@ public class PowerCellMover : MonoBehaviour
                 camRotation.x -= 60f;
                 PowerCellRotation(-1);
                 batteryCharge = cellCharge[powerCellSegment];
-                transform.localRotation = Quaternion.Euler(camRotation.x, 0, -90);
+                transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
+                randomCharge = Random.Range(20, 50);
 
 
             }
