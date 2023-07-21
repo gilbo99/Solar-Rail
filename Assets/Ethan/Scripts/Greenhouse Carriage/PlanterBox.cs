@@ -21,7 +21,7 @@ public class PlanterBox : MonoBehaviour
     {
         if(beingWatered)
         {
-            waterLevel = 1 * Time.deltaTime;
+            waterLevel += Time.deltaTime * 1;
         }
     }
 
@@ -37,7 +37,7 @@ public class PlanterBox : MonoBehaviour
     {
         if(other.CompareTag("Water"))
         {
-            GreenhouseManager.FetchPlanterStatus(planterboxID, waterLevel);
+           GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
         }
     }
 }

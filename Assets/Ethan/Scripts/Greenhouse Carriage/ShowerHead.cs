@@ -12,7 +12,8 @@ public class ShowerHead : MonoBehaviour
     private bool leftAllowed;
     private bool rightAllowed;
 
-    public float speed = 1;
+    public float xSpeed = 0;
+    public float zSpeed = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -23,22 +24,41 @@ public class ShowerHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        showerHead.velocity = new Vector3(rigidbody.velocity.x + xSpeed, rigidbody.velocity.y, rigidbody.velocity.z + zSpeed);
+        
         // TURN ON WATER
         if(Input.GetKeyDown("space"))
         {
-            GameObject.waterStream.SetActive(true);
-        } else {
-            GameObject.waterStream.SetActive(false);
+            waterStream.SetActive(true);
+        }
+
+        if(Input.GetKeyUp("space"))
+        {
+            waterStream.SetActive(false);
         }
         
-        // MOVE SHOWER HEAD / UP
-        if(Input.GetKeyDown("w") || Input.GetKeyDown("up"))
+        // MOVE SHOWER HEAD / DOWN
+        if(Input.GetKeyDown("w"))
         {
             if(upAllowed)
             {
-                showerHead.Transform(0, transform.position + speed, 0);
+                zSpeed = 1;
                 print("moving up");
-            }
+            } 
+        } else {
+            zSpeed = 0;
+        }
+
+        if(Input.GetKeyDown("s"))
+        {
+            if(upAllowed)
+            {
+                zSpeed = -1;
+                print("moving up");
+            } 
+        } else {
+            zSpeed = 0;
         }
     }
 }
