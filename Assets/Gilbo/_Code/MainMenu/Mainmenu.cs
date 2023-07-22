@@ -12,8 +12,10 @@ public class Mainmenu : MonoBehaviour
 {
     
     public GameObject levelSelect;
+    public GameObject credits;
     private int levelCount;
     private bool toggle = false;
+    private bool toggleCredits = false;
     private int screenMode;
     public string newSelectedValue = "Solar Panel Rotation";
 
@@ -65,11 +67,22 @@ public class Mainmenu : MonoBehaviour
 
     }
 
-   
+
+    
+    public void togglecredits()
+    {
+
+        toggleCredits =! toggleCredits;
+        credits.SetActive(toggleCredits);
+    }
 
 
 
-   
+
+
+
+
+
 
 
 
