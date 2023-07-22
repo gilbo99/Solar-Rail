@@ -6,13 +6,15 @@ public class PlanterBox : MonoBehaviour
 {
     public GameObject GreenhouseManager;
 
+    // public GameObject ShowerHead;
+
     // PLANTER ID FOR GREENHOUSE TO CONNECT TO
     
     public int planterboxID;
 
     public float waterLevel;
     
-    private bool beingWatered;
+    public bool beingWatered;
 
     // VARIABLE FOR TRACKING PLANTER INDIVIDUAL WATER
 
@@ -43,10 +45,16 @@ public class PlanterBox : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Water"))
+        beingWatered = false;
+
+        if (other.CompareTag("Water"))
         {
            GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
-           beingWatered = false;
         }
+    }
+
+    void ToggleBeingWatered(bool showerStatus)
+    {
+        beingWatered = showerStatus;
     }
 }
