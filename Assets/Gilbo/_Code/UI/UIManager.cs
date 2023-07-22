@@ -52,9 +52,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < borderColor.Count; i++)
         {
             borderColor[i].GetComponent<Image>().color = pickcolor;
-            borderColor[i].GetComponent<Image>().color = pickcolor;
-            borderColor[i].GetComponent<Image>().color = pickcolor;
-            borderColor[i].GetComponent<Image>().color = pickcolor;
+            
 
         }
     }
