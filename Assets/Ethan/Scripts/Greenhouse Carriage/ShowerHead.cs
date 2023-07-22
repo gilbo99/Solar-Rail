@@ -45,24 +45,24 @@ public class ShowerHead : MonoBehaviour
 
         // MOVE SHOWER HEAD
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("d"))
         {
             cube.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("a"))
         {
             cube.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
         if (Input.GetKey("w"))
         {
-            cube.Translate(Vector3.forward * speed * Time.deltaTime);
+            cube.Translate(Vector3.up * speed * Time.deltaTime);
         }
 
         if (Input.GetKey("s"))
         {
-            cube.Translate(Vector3.back * speed * Time.deltaTime);
+            cube.Translate(Vector3.down * speed * Time.deltaTime);
         }
 
 
