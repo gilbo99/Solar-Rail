@@ -78,6 +78,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
   m_PrefabInstance: {fileID: 816607245027844866}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2463599058706793437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546134192722288211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5045834, y: 1.4504571, z: 6.5889926}
+  m_Center: {x: 0.03140354, y: 0.22522867, z: 2.12384}
 --- !u!114 &5172460794417154254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,16 +106,5 @@ MonoBehaviour:
   GreenhouseManager: {fileID: 0}
   planterboxID: 0
   waterLevel: 0
---- !u!65 &2463599058706793437
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546134192722288211}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5045834, y: 1.4504571, z: 6.5889926}
-  m_Center: {x: 0.03140354, y: 0.22522867, z: 2.12384}
+  beingWatered: 0
+  absorbtion: 10

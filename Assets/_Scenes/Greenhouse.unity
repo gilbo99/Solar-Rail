@@ -306,6 +306,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel
       value: 10
       objectReference: {fileID: 0}
@@ -387,6 +391,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel
       value: 10
       objectReference: {fileID: 0}
@@ -431,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d0d69d0db1de1a84888d17dde0acc290, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.013588
+      value: 7.013588
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d0d69d0db1de1a84888d17dde0acc290, type: 3}
       propertyPath: m_LocalPosition.y
@@ -439,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d0d69d0db1de1a84888d17dde0acc290, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9647093
+      value: -1.9647095
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d0d69d0db1de1a84888d17dde0acc290, type: 3}
       propertyPath: m_LocalRotation.w
@@ -587,6 +595,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel
       value: 10
       objectReference: {fileID: 0}
@@ -666,6 +678,10 @@ PrefabInstance:
     - target: {fileID: 927621174066169065, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel
@@ -841,6 +857,10 @@ PrefabInstance:
     - target: {fileID: 927621174066169065, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel
@@ -1150,6 +1170,10 @@ PrefabInstance:
     - target: {fileID: 927621174066169065, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
+      propertyPath: absorbtion
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5172460794417154254, guid: 2d6ddf3533d835a49be7308ebd316312, type: 3}
       propertyPath: waterLevel

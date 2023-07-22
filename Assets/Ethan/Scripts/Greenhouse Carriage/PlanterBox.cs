@@ -16,6 +16,8 @@ public class PlanterBox : MonoBehaviour
     
     public bool beingWatered;
 
+    public float absorbtion;
+
     // VARIABLE FOR TRACKING PLANTER INDIVIDUAL WATER
 
     void Start()
@@ -29,7 +31,7 @@ public class PlanterBox : MonoBehaviour
     {
         if(beingWatered)
         {
-            waterLevel += Time.deltaTime * 1;
+            waterLevel += absorbtion * Time.deltaTime;
         }
 
         GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
