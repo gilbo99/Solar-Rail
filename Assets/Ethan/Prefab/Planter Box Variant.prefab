@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &816607245027844866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.86
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6592401598038312440, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d216af822005a844a6ba67fe1fe33e0, type: 2}
+    - target: {fileID: -2922120290374380053, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79f286bfcc6ac14479d41ac17038a174, type: 2}
+    - target: {fileID: 919132149155446097, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_Name
+      value: Planter Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453915583638957547, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7fdb88f70a6177146be6915217464ea4, type: 2}
+    - target: {fileID: 5696494855991954268, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12b684c8daa82d14c895137bb956fbae, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+--- !u!1 &546134192722288211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7e1d3ca0861a244eaad42dcc33e6e8a, type: 3}
+  m_PrefabInstance: {fileID: 816607245027844866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5172460794417154254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546134192722288211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93485a84a285964aa5ab62c9b03a5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GreenhouseManager: {fileID: 0}
+  planterboxID: 0
+  waterLevel: 0

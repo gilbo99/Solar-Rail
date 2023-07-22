@@ -24,9 +24,6 @@ public class ShowerHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        showerHead.velocity = new Vector3(rigidbody.velocity.x + xSpeed, rigidbody.velocity.y, rigidbody.velocity.z + zSpeed);
-        
         // TURN ON WATER
         if(Input.GetKeyDown("space"))
         {

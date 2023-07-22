@@ -16,6 +16,12 @@ public class PlanterBox : MonoBehaviour
 
     // VARIABLE FOR TRACKING PLANTER INDIVIDUAL WATER
 
+    void Start()
+    {
+        GreenhouseManager.GetComponent<Greenhouse>().PrimePlanters();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -23,9 +29,11 @@ public class PlanterBox : MonoBehaviour
         {
             waterLevel += Time.deltaTime * 1;
         }
+
+        GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Water"))
         {
@@ -38,6 +46,7 @@ public class PlanterBox : MonoBehaviour
         if(other.CompareTag("Water"))
         {
            GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
+           beingWatered = false;
         }
     }
 }

@@ -22,4 +22,9 @@ public class Greenhouse : MonoBehaviour
     {
         planterboxWaterLevels[planterboxID] = waterLevel;
     }
+
+    public void PrimePlanters()
+    {
+        planterboxWaterLevels.Add(0);
+    }
 }
