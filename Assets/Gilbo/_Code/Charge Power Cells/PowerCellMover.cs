@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PowerCellMover : MonoBehaviour
 {
@@ -87,6 +88,13 @@ public class PowerCellMover : MonoBehaviour
                 }
 
                 facingsun = SolarManager.GetComponent<SolarManager>().AbletoCharge(confirmedPowerCellCharge);
+
+                if(confirmedPowerCellCharge >= 500)
+                {
+                    SceneManager.LoadSceneAsync("Water Nutrients");
+                }
+
+
 
 
             }
