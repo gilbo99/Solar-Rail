@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShowerHead : MonoBehaviour
 {
     public GameObject showerHead;
-    public GameObject waterStream;
+    // public GameObject waterStream;
 
     private bool upAllowed;
     private bool downAllowed;
@@ -14,7 +14,12 @@ public class ShowerHead : MonoBehaviour
 
     public float xSpeed = 0;
     public float zSpeed = 0;
-    
+
+    private bool waterStatus;
+
+    public Transform cube;
+    public float speed;
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -24,41 +29,44 @@ public class ShowerHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        showerHead.velocity = new Vector3(rigidbody.velocity.x + xSpeed, rigidbody.velocity.y, rigidbody.velocity.z + zSpeed);
-        
-        // TURN ON WATER
-        if(Input.GetKeyDown("space"))
+        // // TURN ON WATER
+        // if(Input.GetKeyDown("space"))
+        // {
+        //    waterStream.SetActive(true);
+        //    waterStatus = true;
+        // }
+        // 
+        // if(Input.GetKeyUp("space"))
+        // {
+        //    waterStream.SetActive(false);
+        //    waterStatus = false;
+        //    
+        // }
+
+        // MOVE SHOWER HEAD
+
+        if (Input.GetKey("d"))
         {
-            waterStream.SetActive(true);
+            cube.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        if(Input.GetKeyUp("space"))
+        if (Input.GetKey("a"))
         {
-            waterStream.SetActive(false);
-        }
-        
-        // MOVE SHOWER HEAD / DOWN
-        if(Input.GetKeyDown("w"))
-        {
-            if(upAllowed)
-            {
-                zSpeed = 1;
-                print("moving up");
-            } 
-        } else {
-            zSpeed = 0;
+            cube.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
-        if(Input.GetKeyDown("s"))
+        if (Input.GetKey("w"))
         {
-            if(upAllowed)
-            {
-                zSpeed = -1;
-                print("moving up");
-            } 
-        } else {
-            zSpeed = 0;
+            cube.Translate(Vector3.up * speed * Time.deltaTime);
         }
+
+        if (Input.GetKey("s"))
+        {
+            cube.Translate(Vector3.down * speed * Time.deltaTime);
+        }
+
+
+
+
     }
 }

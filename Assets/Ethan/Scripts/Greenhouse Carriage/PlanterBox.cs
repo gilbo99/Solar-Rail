@@ -6,26 +6,38 @@ public class PlanterBox : MonoBehaviour
 {
     public GameObject GreenhouseManager;
 
+    // public GameObject ShowerHead;
+
     // PLANTER ID FOR GREENHOUSE TO CONNECT TO
     
     public int planterboxID;
 
     public float waterLevel;
     
-    private bool beingWatered;
+    public bool beingWatered;
+
+    public float absorbtion;
 
     // VARIABLE FOR TRACKING PLANTER INDIVIDUAL WATER
+
+    void Start()
+    {
+        GreenhouseManager.GetComponent<Greenhouse>().PrimePlanters();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         if(beingWatered)
         {
-            waterLevel += Time.deltaTime * 1;
+            waterLevel += absorbtion * Time.deltaTime;
         }
+
+        GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Water"))
         {
@@ -35,9 +47,16 @@ public class PlanterBox : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Water"))
+        beingWatered = false;
+
+        if (other.CompareTag("Water"))
         {
            GreenhouseManager.GetComponent<Greenhouse>().FetchPlanterStatus(planterboxID, waterLevel);
         }
+    }
+
+    void ToggleBeingWatered(bool showerStatus)
+    {
+        beingWatered = showerStatus;
     }
 }
