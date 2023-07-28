@@ -16,10 +16,8 @@ public class UIManager : MonoBehaviour
     
     public TextMeshProUGUI interactText;
     public List<Slider> sliderList;
-    
+    public List<Slider> RandomsliderList;   
 
-
-    
     public void UpdateUIText(string setWord)
     {
         interactText.text = setWord;
@@ -30,6 +28,16 @@ public class UIManager : MonoBehaviour
         sliderList[selectedcell].value = charge;
 
     }
+
+
+    public void RandomBatterySlider(float charge, int selectedcell)
+    {
+        RandomsliderList[selectedcell].value = charge;
+
+    }
+
+
+
 
     public void ObjectiveUpdate(string header, string line1 , string line2 , string line3)
     {

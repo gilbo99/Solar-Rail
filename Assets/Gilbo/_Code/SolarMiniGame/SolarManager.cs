@@ -44,7 +44,7 @@ public class SolarManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Rotationx < randomrotate - 10f & Rotationx > randomrotate - 40f)
+        if (Rotationx < randomrotate - 10f && Rotationx > randomrotate - 40f)
         {
             sun.SetActive(true);
             facingSun = true;
@@ -53,7 +53,7 @@ public class SolarManager : MonoBehaviour
             facingSun = false;
             sun.SetActive(false);
         }
-
+        
 
         
             if (timer > 0)
