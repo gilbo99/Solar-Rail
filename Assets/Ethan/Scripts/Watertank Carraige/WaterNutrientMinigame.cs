@@ -93,12 +93,15 @@ public class WaterNutrientMinigame : MonoBehaviour
         // ADD CYAN DROP BY PRESSING 1
         if (Input.GetKey("1"))
         {
+            
+           
             AddCyanDrop();
         }
 
         // ADD MAGENTA BY WITH PRESSING 2
         if (Input.GetKey("2"))
         {
+            
             AddMagentaDrop();
         }
 

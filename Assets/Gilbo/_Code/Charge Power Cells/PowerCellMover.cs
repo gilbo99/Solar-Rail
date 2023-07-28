@@ -58,7 +58,7 @@ public class PowerCellMover : MonoBehaviour
                 PowerCellRotation(1);
                 batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
-                randomCharge = Random.Range(20, 50);
+                randomCharge = Random.Range(30, 60);
 
 
               
@@ -72,7 +72,7 @@ public class PowerCellMover : MonoBehaviour
                 PowerCellRotation(-1);
                 batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
-                randomCharge = Random.Range(20, 50);
+                randomCharge = Random.Range(30, 60);
 
 
             }
@@ -137,7 +137,7 @@ public class PowerCellMover : MonoBehaviour
 
     }
 
-    void CheckIfCharged()
+    void CheckIfCharged()   
     {
         for(int i = 0; i < RandomCellCharge.Count; i++)
         {
@@ -146,7 +146,7 @@ public class PowerCellMover : MonoBehaviour
             if(RandomCellChargeF + 10 > batteryChargeCheck && RandomCellChargeF - 10 < batteryChargeCheck)
             {
                 winCount++;
-                    if(winCount == 6)
+                if(winCount == 6)
                 {
                     SceneManager.LoadSceneAsync("Water Nutrients");
                 }
