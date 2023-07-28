@@ -5,22 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PowerCellMover : MonoBehaviour
 {
-    public int powerCellSegment = 0;
-    public int winCount;
+    private int powerCellSegment = 0;
+    private int winCount;
+    public int checkWithin; 
 
     public float batteryCharge;
     public float randomCharge;
     public float confirmedPowerCellCharge;
     public float RandomCellChargeF;
     public float batteryChargeCheck;
+    
 
     public List<float> cellCharge;
     public List<float> RandomCellCharge;
 
     public GameObject sliderUI;
     public GameObject SolarManager;
-    
-    public bool facingsun;
+
+    private bool facingsun;
 
     private Quaternion camRotation;
     
@@ -143,7 +145,7 @@ public class PowerCellMover : MonoBehaviour
         {
             batteryChargeCheck = cellCharge[i];
             RandomCellChargeF = RandomCellCharge[i];
-            if(RandomCellChargeF + 10 > batteryChargeCheck && RandomCellChargeF - 10 < batteryChargeCheck)
+            if(RandomCellChargeF + checkWithin > batteryChargeCheck && RandomCellChargeF - checkWithin < batteryChargeCheck)
             {
                 winCount++;
                 if(winCount == 6)

@@ -2666,8 +2666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8642447155e82ae469a98582ae662a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerCellSegment: 0
-  winCount: 0
+  checkWithin: 5
   batteryCharge: 0
   randomCharge: 0
   confirmedPowerCellCharge: 0
@@ -2689,7 +2688,6 @@ MonoBehaviour:
   - 0
   sliderUI: {fileID: 1221495560}
   SolarManager: {fileID: 1221495560}
-  facingsun: 0
 --- !u!136 &644400137
 CapsuleCollider:
   m_ObjectHideFlags: 0
