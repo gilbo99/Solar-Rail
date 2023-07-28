@@ -5,18 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PowerCellMover : MonoBehaviour
 {
-    public int powerCellSegment = 0;
-    public List<float> cellCharge;
-    public GameObject sliderUI;
-    
+    private int powerCellSegment = 0;
+    private int winCount;
+    public int checkWithin; 
+
     public float batteryCharge;
     public float randomCharge;
     public float confirmedPowerCellCharge;
+    public float RandomCellChargeF;
+    public float batteryChargeCheck;
+    
+
+    public List<float> cellCharge;
+    public List<float> RandomCellCharge;
+
+    public GameObject sliderUI;
     public GameObject SolarManager;
-    public bool facingsun;
 
-
-
+    private bool facingsun;
 
     private Quaternion camRotation;
     
@@ -26,6 +32,16 @@ public class PowerCellMover : MonoBehaviour
         camRotation = transform.localRotation;
         camRotation.x = 90f;
         randomCharge = Random.Range(10, 50);
+
+
+
+        for(int i = 0; i < RandomCellCharge.Count; i++)
+        {
+            RandomCellCharge[i] = Random.Range(25, 90);
+            sliderUI.GetComponent<UIManager>().RandomBatterySlider(RandomCellCharge[i], i);
+        }
+
+
     }
     public void OnEnable()
     {
@@ -44,7 +60,11 @@ public class PowerCellMover : MonoBehaviour
                 PowerCellRotation(1);
                 batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
-                randomCharge = Random.Range(20, 50);
+                randomCharge = Random.Range(30, 60);
+
+
+              
+
 
             }
 
@@ -54,7 +74,7 @@ public class PowerCellMover : MonoBehaviour
                 PowerCellRotation(-1);
                 batteryCharge = cellCharge[powerCellSegment];
                 transform.localRotation = Quaternion.Euler(camRotation.x, -90, -90);
-                randomCharge = Random.Range(20, 50);
+                randomCharge = Random.Range(30, 60);
 
 
             }
@@ -78,7 +98,7 @@ public class PowerCellMover : MonoBehaviour
 
             if (Input.GetKeyDown("space"))
             {
-
+                CheckIfCharged();
                 for (int i = 0; i < cellCharge.Count; i++)
                 {
                     confirmedPowerCellCharge += cellCharge[i];
@@ -89,13 +109,10 @@ public class PowerCellMover : MonoBehaviour
 
                 facingsun = SolarManager.GetComponent<SolarManager>().AbletoCharge(confirmedPowerCellCharge);
 
-                if(confirmedPowerCellCharge >= 500)
-                {
-                    SceneManager.LoadSceneAsync("Water Nutrients");
-                }
 
 
 
+                
 
             }
 
@@ -120,6 +137,23 @@ public class PowerCellMover : MonoBehaviour
             powerCellSegment = 5;
         }
 
+    }
+
+    void CheckIfCharged()   
+    {
+        for(int i = 0; i < RandomCellCharge.Count; i++)
+        {
+            batteryChargeCheck = cellCharge[i];
+            RandomCellChargeF = RandomCellCharge[i];
+            if(RandomCellChargeF + checkWithin > batteryChargeCheck && RandomCellChargeF - checkWithin < batteryChargeCheck)
+            {
+                winCount++;
+                if(winCount == 6)
+                {
+                    SceneManager.LoadSceneAsync("Water Nutrients");
+                }
+            }
+        }
     }
 
 
