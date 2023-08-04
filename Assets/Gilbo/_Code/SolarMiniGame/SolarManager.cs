@@ -113,6 +113,7 @@ public class SolarManager : MonoBehaviour
     public bool AbletoCharge(float val)
     {
         BatteryCharge = val;
+        //Chnage so Battery is full charge when this is triggered
         battery.gameObject.GetComponent<Battery>().SetCharge(BatteryCharge);
         return facingSun;
     }

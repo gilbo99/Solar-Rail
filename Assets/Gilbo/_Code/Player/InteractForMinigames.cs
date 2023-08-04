@@ -24,10 +24,6 @@ public class InteractForMinigames : MonoBehaviour
     void Update()
     {
 
-        
-
-
-
         if (Input.GetKeyDown(KeyCode.F) & inputbool)
         {
 

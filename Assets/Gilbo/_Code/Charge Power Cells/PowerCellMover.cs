@@ -150,7 +150,8 @@ public class PowerCellMover : MonoBehaviour
                 winCount++;
                 if(winCount == 6)
                 {
-                    SceneManager.LoadSceneAsync("Water Nutrients");
+                    Debug.Log("Send Finish gmae");
+                    //SceneManager.LoadSceneAsync("Water Nutrients");
                 }
             }
         }
