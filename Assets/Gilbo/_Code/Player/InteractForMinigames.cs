@@ -13,17 +13,14 @@ public class InteractForMinigames : MonoBehaviour
     public bool cam1stats = true;
     public bool minigamecamstats = false;
     public bool inputbool = false;
-    public GameObject UIManager;
+    
 
-    private UIManager uiUpdate;
+    [SerializeField] private UIManager uiUpdate;
 
     //Add GameObject that is gamemanager when setup
     // make sure it triggers OnTriggerExit once minigame is done
 
-    public void Start()
-    {
-        uiUpdate = UIManager.GetComponent<UIManager>();
-    }
+   
     void Update()
     {
 
