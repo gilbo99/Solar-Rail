@@ -54,6 +54,17 @@ public class EventBus : MonoBehaviour
     }
 
 
+    public event Action GreenHouseMinigame;
+    // is the Event trigger
+    public void GreenHouseMinigameTrigger()
+    {
+        SolarPanelToggle();
+    }
+
+
+
+
+
 
 
 }
