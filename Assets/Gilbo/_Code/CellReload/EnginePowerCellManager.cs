@@ -12,13 +12,8 @@ public class EnginePowerCellManager : MonoBehaviour
     [SerializeField] private UIManager uiUpdate;
 
     void Start()
-    {
-        void Start()
-        {
-
-            
-            EventBus.Current.PowerCellsToggle += ToggleEngine;
-        }
+    {    
+            EventBus.Current.PowerCellsToggle += ToggleEngine;   
     }
 
     // Update is called once per frame
