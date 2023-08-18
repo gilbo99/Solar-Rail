@@ -5,12 +5,14 @@ using UnityEngine;
 public class ShowerHead : MonoBehaviour
 {
     public GameObject showerHead;
-    // public GameObject waterStream;
+    public GameObject waterStream;
 
     private bool upAllowed;
     private bool downAllowed;
     private bool leftAllowed;
     private bool rightAllowed;
+
+    private bool ableToMove = false;
 
     public float xSpeed = 0;
     public float zSpeed = 0;
@@ -23,28 +25,17 @@ public class ShowerHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        EventBus.Current.GreenHouseMinigame += ToggleWater;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // // TURN ON WATER
-        // if(Input.GetKeyDown("space"))
-        // {
-        //    waterStream.SetActive(true);
-        //    waterStatus = true;
-        // }
-        // 
-        // if(Input.GetKeyUp("space"))
-        // {
-        //    waterStream.SetActive(false);
-        //    waterStatus = false;
-        //    
-        // }
 
-        // MOVE SHOWER HEAD
+        if(ableToMove)
+        {
 
+        
         if (Input.GetKey("d"))
         {
             cube.Translate(Vector3.left * speed * Time.deltaTime);
@@ -64,9 +55,20 @@ public class ShowerHead : MonoBehaviour
         {
             cube.Translate(Vector3.down * speed * Time.deltaTime);
         }
+        }
+    
+    }
 
 
 
+    public void ToggleWater()
+    {
+        ableToMove =! ableToMove;
+        waterStream.SetActive(ableToMove);
+    }
 
+    public void OnDestroy()
+    {
+        EventBus.Current.GreenHouseMinigame -= ToggleWater;
     }
 }
