@@ -93,6 +93,10 @@ public class InteractForMinigames : MonoBehaviour
             case "Water Nutrients":
                 SwitchCam();
                 break;
+            case "Water Nutrient Minigame":
+                SwitchCam();
+                break;
+
 
 
         }
