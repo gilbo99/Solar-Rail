@@ -49,7 +49,7 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     private string watertankNutrientGoal = "Completed";
 
-    void Start()
+    void OnEnable()
     {
         gameActive = true;
         
@@ -92,9 +92,7 @@ public class WaterNutrientMinigame : MonoBehaviour
         
         // ADD CYAN DROP BY PRESSING 1
         if (Input.GetKey("1"))
-        {
-            
-           
+        {  
             AddCyanDrop();
         }
 
