@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EventBus : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class EventBus : MonoBehaviour
         }
     }
 
-  
+
 
     //Makes an Event so it can get called 
     public event Action SolarPanelToggle;
@@ -58,15 +59,15 @@ public class EventBus : MonoBehaviour
     // is the Event trigger
     public void GreenHouseMinigameTrigger()
     {
-        SolarPanelToggle();
+        GreenHouseMinigame();
     }
 
-
-
-
-
-
-
+    public event Action WaterTankMinigame;
+    // is the Event trigger
+    public void OptimiseWaterNutrientsTrigger()
+    {
+        WaterTankMinigame();
+    }
 }
 
 

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Greenhouse : MonoBehaviour
 {
     public List<float> planterboxWaterLevels;
-    
+
     // Start is called before the first frame update
+
     void Start()
     {
         
@@ -27,4 +28,10 @@ public class Greenhouse : MonoBehaviour
     {
         planterboxWaterLevels.Add(0);
     }
+
+    // IF WATER ON ALL INDEX >50 WIN
+
+
+    // IF ANY WATER >100 LOSE
+
 }
