@@ -90,15 +90,14 @@ public class InteractForMinigames : MonoBehaviour
                 SwitchCam();
                 break;
             
-            case "Water Nutrients":
+            case "Water Plants":
+                EventBus.Current.GreenHouseMinigameTrigger();
                 SwitchCam();
                 break;
-            case "Water Nutrient Minigame":
+            case "Optimise Water Nutrients":
+                EventBus.Current.OptimiseWaterNutrientsTrigger();
                 SwitchCam();
                 break;
-
-
-
         }
 
 

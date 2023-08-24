@@ -26,6 +26,7 @@ public class ShowerHead : MonoBehaviour
     void Start()
     {
         EventBus.Current.GreenHouseMinigame += ToggleWater;
+        waterStream.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class ShowerHead : MonoBehaviour
         if(ableToMove)
         {
 
-        
+      
         if (Input.GetKey("d"))
         {
             cube.Translate(Vector3.left * speed * Time.deltaTime);
@@ -63,8 +64,9 @@ public class ShowerHead : MonoBehaviour
 
     public void ToggleWater()
     {
-        ableToMove =! ableToMove;
+        ableToMove =!ableToMove;
         waterStream.SetActive(ableToMove);
+        print("Hey, I'm working here." + ableToMove);
     }
 
     public void OnDestroy()
