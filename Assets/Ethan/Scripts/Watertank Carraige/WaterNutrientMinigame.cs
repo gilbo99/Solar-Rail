@@ -9,7 +9,6 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     public GameObject UIManager;
     private UIManager uiUpdate;
-    
 
     // GLOBAL UI SCRIPT VARIABLES
 
@@ -21,12 +20,16 @@ public class WaterNutrientMinigame : MonoBehaviour
     public string controls1;
     public string controls2;
     public string controls3;
-
+    
     public Color32 colour;
 
     // NUTRIENT MONITOR DISPLAY
 
     public GameObject nutrientsMonitorScreen;
+    public Material GreenGoalMonitor;
+    public Material PurpleGoalMonitor;
+    public Material OrangeGoalMonitor;
+    public Material OptimisedNutrientsMonitor;
 
     // WATER TANK GLOBAL VARIABLES
 
@@ -43,45 +46,32 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     // WATER TANK DROP GOALS
 
-    // public gameObject OrangeGoalUI;
-    // public gameObject GreenGoalUI;
-    // public gameObject PurpleGoalUI;
-
     private string watertankNutrientGoal = "Completed";
+
+    void Start()
+    {
+        EventBus.Current.WaterTankMinigame += ToggleWaterGame;
+    }
 
     void OnEnable()
     {
-        gameActive = true;
+        
         
         uiUpdate = UIManager.GetComponent<UIManager>();
         
-        switch (UnityEngine.Random.Range(0,2))
-        {
-            case 0:
-                watertankNutrientGoal = "Orange";
-                //OrangeGoalUI.SetActive(true);
-                break;
-            case 1:
-                watertankNutrientGoal = "Green";
-                //GreenGoalUI.SetActive(true);
-                break;
-            case 2:
-                watertankNutrientGoal = "Purple";
-                //PurpleGoalUI.SetActive(true);
-                break;
-        }
+        RollNutrients();
 
         // UPDATE UI
         
-        minigameObjectiveHeader = "ADD CHEMICALS TO CORRECT THE NUTRIENTS IMBALANCE IN THE WATER TANK";
-        minigameObjectiveBodyLine1 = "• Correct the balance of nutrients with the dispenser.";
-        minigameObjectiveBodyLine2 = "• The display indicates you're missing the " + watertankNutrientGoal + " compound.";
-        minigameObjectiveBodyLine3 = null;
-
-        controls1 = null;
-        controls2 = "Click the buttons below to add nutrients.";
-        controls3 = null;
-
+        // minigameObjectiveHeader = "ADD CHEMICALS TO CORRECT THE NUTRIENTS IMBALANCE IN THE WATER TANK";
+        // minigameObjectiveBodyLine1 = "• Correct the balance of nutrients with the dispenser.";
+        // minigameObjectiveBodyLine2 = "• The display indicates you're missing the " + watertankNutrientGoal + " compound.";
+        // minigameObjectiveBodyLine3 = null;
+// 
+        // controls1 = null;
+        // controls2 = "Click the buttons below to add nutrients.";
+        // controls3 = null;
+// 
         // SEND OBJECTIVES TO MANAGERS
 
         
@@ -89,24 +79,26 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     void Update()
     {
-        
+        if(allowInput)
+        {
         // ADD CYAN DROP BY PRESSING 1
-        if (Input.GetKey("1"))
+        if (Input.GetKeyDown("1"))
         {  
             AddCyanDrop();
         }
 
         // ADD MAGENTA BY WITH PRESSING 2
-        if (Input.GetKey("2"))
+        if (Input.GetKeyDown("2"))
         {
             
             AddMagentaDrop();
         }
 
         // ADD YELLOW DROP BY PRESSING 3
-        if (Input.GetKey("3"))
+        if (Input.GetKeyDown("3"))
         {
             AddYellowDrop();
+        }
         }
 
     }
@@ -168,6 +160,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 {
                     // PASS
                     nutrientsOptimised = true;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
                 }
                 else
@@ -186,6 +179,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 {
                     // PASS
                     nutrientsOptimised = true;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
                 }
                 else
@@ -204,6 +198,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 {
                     // PASS
                     nutrientsOptimised = true;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
                 }
                 else
@@ -218,10 +213,17 @@ public class WaterNutrientMinigame : MonoBehaviour
                 break;
         }
     }
+    
+    void ToggleWaterGame()
+    {
+        allowInput = !allowInput;
+        UpdateUI();
+    }
+
 
     void UpdateUI()
     {
-        if(gameActive)
+        if(allowInput)
         {
             uiUpdate.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
             uiUpdate.ButtonUpdate(controls1, controls2, controls3);
@@ -234,4 +236,32 @@ public class WaterNutrientMinigame : MonoBehaviour
             uiUpdate.borderChange(color2);
         }
     } 
+
+    void RollNutrients()
+    {  
+        switch (UnityEngine.Random.Range(0,2))
+        {
+            case 0:
+                watertankNutrientGoal = "Orange";
+                nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OrangeGoalMonitor;
+                break;
+            case 1:
+                watertankNutrientGoal = "Green";
+                nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = GreenGoalMonitor;
+                break;
+            case 2:
+                watertankNutrientGoal = "Purple";
+                nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = PurpleGoalMonitor;
+                break;
+        }
+    }
+
+
+    
+
+
+    void OnDestroy()
+    {
+        EventBus.Current.WaterTankMinigame -= ToggleWaterGame;
+    }
 }

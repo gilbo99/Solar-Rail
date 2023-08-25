@@ -6,11 +6,7 @@ public class ShowerHead : MonoBehaviour
 {
     public GameObject showerHead;
     public GameObject waterStream;
-
-    private bool upAllowed;
-    private bool downAllowed;
-    private bool leftAllowed;
-    private bool rightAllowed;
+    public GameObject UIManager;
 
     private bool ableToMove = false;
 
@@ -21,12 +17,28 @@ public class ShowerHead : MonoBehaviour
 
     public Transform cube;
     public float speed;
-        
+
+    private UIManager uiUpdate;
+
+    // UI ELEMENTS
+
+    public string minigameObjectiveHeader;
+    public string minigameObjectiveBodyLine1;
+    public string minigameObjectiveBodyLine2;
+    public string minigameObjectiveBodyLine3;
+
+    public string controls1;
+    public string controls2;
+    public string controls3;
+    
+    public Color32 colour;
+
     // Start is called before the first frame update
     void Start()
     {
         EventBus.Current.GreenHouseMinigame += ToggleWater;
         waterStream.SetActive(false);
+        uiUpdate = UIManager.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -60,13 +72,26 @@ public class ShowerHead : MonoBehaviour
     
     }
 
-
-
     public void ToggleWater()
     {
         ableToMove =!ableToMove;
         waterStream.SetActive(ableToMove);
-        print("Hey, I'm working here." + ableToMove);
+        UpdateUI();
+    }
+    
+    void UpdateUI()
+    {
+        if(ableToMove)
+        {
+            uiUpdate.ObjectiveUpdate(minigameObjectiveHeader, minigameObjectiveBodyLine1, minigameObjectiveBodyLine2, minigameObjectiveBodyLine3);
+            uiUpdate.ButtonUpdate(controls1, controls2, controls3);
+            uiUpdate.borderChange(colour);
+        } else {
+            Color32 color2 = new Color32(225, 255, 0, 0);
+            uiUpdate.ObjectiveUpdate("", "", "", "");
+            uiUpdate.ButtonUpdate("","","");
+            uiUpdate.borderChange(color2);
+        }
     }
 
     public void OnDestroy()
