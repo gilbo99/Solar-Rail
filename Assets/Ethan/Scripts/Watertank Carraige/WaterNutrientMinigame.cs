@@ -56,52 +56,34 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     void OnEnable()
     {
-        
-        
         uiUpdate = UIManager.GetComponent<UIManager>();
         
         RollNutrients();
-
-        // UPDATE UI
-        
-        // minigameObjectiveHeader = "ADD CHEMICALS TO CORRECT THE NUTRIENTS IMBALANCE IN THE WATER TANK";
-        // minigameObjectiveBodyLine1 = "• Correct the balance of nutrients with the dispenser.";
-        // minigameObjectiveBodyLine2 = "• The display indicates you're missing the " + watertankNutrientGoal + " compound.";
-        // minigameObjectiveBodyLine3 = null;
-// 
-        // controls1 = null;
-        // controls2 = "Click the buttons below to add nutrients.";
-        // controls3 = null;
-// 
-        // SEND OBJECTIVES TO MANAGERS
-
-        
     }
 
     void Update()
     {
         if(allowInput)
         {
-        // ADD CYAN DROP BY PRESSING 1
-        if (Input.GetKeyDown("1"))
-        {  
-            AddCyanDrop();
-        }
+            // ADD CYAN DROP BY PRESSING 1
+            if (Input.GetKeyDown("1"))
+            {  
+                AddCyanDrop();
+            }
 
-        // ADD MAGENTA BY WITH PRESSING 2
-        if (Input.GetKeyDown("2"))
-        {
-            
-            AddMagentaDrop();
-        }
+            // ADD MAGENTA BY WITH PRESSING 2
+            if (Input.GetKeyDown("2"))
+            {
+                
+                AddMagentaDrop();
+            }
 
-        // ADD YELLOW DROP BY PRESSING 3
-        if (Input.GetKeyDown("3"))
-        {
-            AddYellowDrop();
+            // ADD YELLOW DROP BY PRESSING 3
+            if (Input.GetKeyDown("3"))
+            {
+                AddYellowDrop();
+            }
         }
-        }
-
     }
 
     public void AddCyanDrop()
@@ -157,7 +139,7 @@ public class WaterNutrientMinigame : MonoBehaviour
         switch (watertankNutrientGoal)
         {
             case "Orange":
-                if (watertankDrop1 == "Magenta" || watertankDrop2 == "Magenta" && watertankDrop1 == "Magenta" || watertankDrop2 == "Yellow")
+                if ((watertankDrop1 == "Magenta" || watertankDrop2 == "Magenta") && (watertankDrop1 == "Yellow" || watertankDrop2 == "Yellow"))
                 {
                     // PASS
                     nutrientsOptimised = true;
@@ -177,7 +159,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 break;
 
             case "Green":
-                if (watertankDrop1 == "Cyan" || watertankDrop2 == "Cyan" && watertankDrop1 == "Yellow" || watertankDrop2 == "Yellow")
+                if ((watertankDrop1 == "Cyan" || watertankDrop2 == "Cyan") && (watertankDrop1 == "Yellow" || watertankDrop2 == "Yellow"))
                 {
                     // PASS
                     nutrientsOptimised = true;
@@ -197,7 +179,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                 break;
 
             case "Purple":
-                if (watertankDrop1 == "Magenta" || watertankDrop2 == "Magenta" && watertankDrop1 == "Magenta" || watertankDrop2 == "Cyan")
+                if ((watertankDrop1 == "Magenta" || watertankDrop2 == "Magenta") && (watertankDrop1 == "Cyan" || watertankDrop2 == "Cyan"))
                 {
                     // PASS
                     nutrientsOptimised = true;
