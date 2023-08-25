@@ -3466,6 +3466,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5d3a635f70e55d34982cfa23732268fb, type: 2}
+    - target: {fileID: -4683669308469848369, guid: c4793cc01861d704ca9e0c2151b51eb0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19e7b821118bacb4882ddd52f3ae3e0d, type: 2}
     - target: {fileID: -1490268105332481279, guid: c4793cc01861d704ca9e0c2151b51eb0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4492,17 +4496,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIManager: {fileID: 225379343}
-  minigameObjectiveHeader: 
-  minigameObjectiveBodyLine1: 
-  minigameObjectiveBodyLine2: 
-  minigameObjectiveBodyLine3: 
-  controls1: 
-  controls2: 
-  controls3: 
+  minigameObjectiveHeader: Optimise
+  minigameObjectiveBodyLine1: Click buttons
+  minigameObjectiveBodyLine2: Make GOal
+  minigameObjectiveBodyLine3: DO Thing
+  controls1: ADD CYAN DROP
+  controls2: ADD MAGENTA DROP
+  controls3: ADD YELLOW DROP
   colour:
     serializedVersion: 2
     rgba: 4294483006
-  nutrientsMonitorScreen: {fileID: 1451876800}
+  nutrientsMonitorScreen: {fileID: 1418305243}
+  GreenGoalMonitor: {fileID: 2100000, guid: 4221b8b4d140ce947ab9cc99bcaa5b5a, type: 2}
+  PurpleGoalMonitor: {fileID: 2100000, guid: 724f8d6c09e5cb44cab80f8113e4f8ac, type: 2}
+  OrangeGoalMonitor: {fileID: 2100000, guid: 230e3b11a36c782419da36a11caebfc0, type: 2}
+  OptimisedNutrientsMonitor: {fileID: 2100000, guid: 943a975bf3db2b643a85fcedea4eb71d, type: 2}
+  ContaminatedNutrientsMonitor: {fileID: 2100000, guid: 28aa58cec65a8114a9e8fc6c77ac73e4, type: 2}
   watertankLevel: 0
   watertankCapacity: 0
   nutrientsOptimised: 0
@@ -5409,6 +5418,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5d3a635f70e55d34982cfa23732268fb, type: 2}
+    - target: {fileID: -4683669308469848369, guid: c4793cc01861d704ca9e0c2151b51eb0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38a30974d4335d6438c10705f494c064, type: 2}
     - target: {fileID: -1490268105332481279, guid: c4793cc01861d704ca9e0c2151b51eb0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6006,10 +6019,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showerHead: {fileID: 1142377866}
   waterStream: {fileID: 1995910153}
+  UIManager: {fileID: 225379343}
   xSpeed: 0
   zSpeed: 0
   cube: {fileID: 1142377871}
   speed: 5
+  minigameObjectiveHeader: Water The Plants
+  minigameObjectiveBodyLine1: Move the shower head to water the plants
+  minigameObjectiveBodyLine2: Don't flood any planters
+  minigameObjectiveBodyLine3: To exit press F at grenhouse door
+  controls1: WASD TO MOVE
+  controls2: F to Exit at Door
+  controls3: 
+  colour:
+    serializedVersion: 2
+    rgba: 4281960759
 --- !u!4 &1142377871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d0d69d0db1de1a84888d17dde0acc290, type: 3}
@@ -6792,8 +6816,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301547727}
-  m_LocalRotation: {x: -0.019723387, y: -0.99178374, z: 0.024734057, w: 0.12395271}
-  m_LocalPosition: {x: -30.35, y: 4.03, z: 2.06}
+  m_LocalRotation: {x: 0.00027699233, y: -0.99942034, z: 0.03299269, w: 0.008392717}
+  m_LocalPosition: {x: -30.670559, y: 4.123949, z: 2.358818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7224,9 +7248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1373345214}
   - component: {fileID: 1373345213}
-  - component: {fileID: 1373345212}
-  - component: {fileID: 1373345211}
-  - component: {fileID: 1373345210}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7234,56 +7255,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1373345210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373345209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebaa18672d4d2042932a7c81da86141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelSystem: {fileID: 1373345211}
-  savingSystem: {fileID: 1373345212}
---- !u!114 &1373345211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373345209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1bb35738c8146a448de03b22cac38bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLevel: 12
-  rankingLevel: 1
-  playerXP: 10
-  XPneeded: 200
-  leftOverXP: 0
-  constant: 50
-  rankingName:
-  - test
-  savingSystem: {fileID: 1373345212}
---- !u!114 &1373345212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373345209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f1e57e872505a48be7d30c5d9ea777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isencrypted: 0
-  _path: /PlayerData.json
-  levelSystem: {fileID: 1373345211}
 --- !u!114 &1373345213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7710,7 +7681,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc37c3d2a5f52784caace9708507cb68, type: 2}
+  - {fileID: 2100000, guid: 943a975bf3db2b643a85fcedea4eb71d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7969,11 +7940,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d68b1171219e946928176f05f0a930, type: 3}
---- !u!1 &1451876800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8256134651489076907, guid: 85d68b1171219e946928176f05f0a930, type: 3}
-  m_PrefabInstance: {fileID: 1451876799}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1451876801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6609493762104327279, guid: 85d68b1171219e946928176f05f0a930, type: 3}
@@ -11238,8 +11204,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12.087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8632
+      value: 3.5525634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.324
       objectReference: {fileID: 0}
     - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11247,11 +11221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: 4.23
       objectReference: {fileID: 0}
     - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 6110851129109196064, guid: c83990d0b9f8eda4db88844c068a2e0f, type: 3}
       propertyPath: m_LocalRotation.w
