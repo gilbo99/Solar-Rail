@@ -99,7 +99,5 @@ public class InteractForMinigames : MonoBehaviour
                 SwitchCam();
                 break;
         }
-
-
     }
 }

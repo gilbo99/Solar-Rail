@@ -4511,6 +4511,7 @@ MonoBehaviour:
   PurpleGoalMonitor: {fileID: 2100000, guid: 724f8d6c09e5cb44cab80f8113e4f8ac, type: 2}
   OrangeGoalMonitor: {fileID: 2100000, guid: 230e3b11a36c782419da36a11caebfc0, type: 2}
   OptimisedNutrientsMonitor: {fileID: 2100000, guid: 943a975bf3db2b643a85fcedea4eb71d, type: 2}
+  ContaminatedNutrientsMonitor: {fileID: 2100000, guid: 28aa58cec65a8114a9e8fc6c77ac73e4, type: 2}
   watertankLevel: 0
   watertankCapacity: 0
   nutrientsOptimised: 0

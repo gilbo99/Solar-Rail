@@ -30,6 +30,7 @@ public class WaterNutrientMinigame : MonoBehaviour
     public Material PurpleGoalMonitor;
     public Material OrangeGoalMonitor;
     public Material OptimisedNutrientsMonitor;
+    public Material ContaminatedNutrientsMonitor;
 
     // WATER TANK GLOBAL VARIABLES
 
@@ -168,6 +169,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     // FAIL
                     watertankLevel = 0;
                     nutrientsOptimised = false;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = ContaminatedNutrientsMonitor;
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // OrangeGoalUI.SetActive(false);
@@ -187,6 +189,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     // FAIL
                     watertankLevel = 0;
                     nutrientsOptimised = false;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = ContaminatedNutrientsMonitor;
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // GreenGoalUI.SetActive(false);
@@ -206,6 +209,7 @@ public class WaterNutrientMinigame : MonoBehaviour
                     // FAIL
                     watertankLevel = 0;
                     nutrientsOptimised = false;
+                    nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = ContaminatedNutrientsMonitor;
                     print("Water has been contaminated and subsequently drained.");
                 }
                 // PurpleGoalUI.SetActive(false);
