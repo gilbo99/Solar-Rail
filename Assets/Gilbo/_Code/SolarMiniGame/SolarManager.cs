@@ -86,7 +86,7 @@ public class SolarManager : MonoBehaviour
         solar.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         solar2.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
         solar3.gameObject.transform.GetComponent<SolarMovertop>().enabled = toggle;
-        batteryText.SetActive(toggle);
+        //batteryText.SetActive(toggle);
 
         
 
