@@ -27,8 +27,7 @@ public class InteractForMinigames : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) & inputbool)
         {
 
-            uiUpdate.UpdateUIText("");
-            MiniGameSwitch();
+            pressF();
 
         }
 
@@ -37,10 +36,11 @@ public class InteractForMinigames : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
        
-        inputbool = true;
+        
         if (other.CompareTag("Player"))
         {
-             uiUpdate.UpdateUIText("Press F To Start " + MiniGame);
+            inputbool = true;
+            uiUpdate.UpdateUIText("Press F To Start " + MiniGame);
         }
 
 
@@ -49,9 +49,10 @@ public class InteractForMinigames : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         
-        inputbool = false;
+        
         if (other.CompareTag("Player"))
         {
+            inputbool = false;
             uiUpdate.UpdateUIText("");
         }
 
@@ -71,7 +72,11 @@ public class InteractForMinigames : MonoBehaviour
 
     }
 
-
+    public void pressF()    
+    {
+        uiUpdate.UpdateUIText("");
+        MiniGameSwitch();
+    }
 
 
 
