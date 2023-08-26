@@ -12,7 +12,8 @@ public class SolarManager : MonoBehaviour
     public GameObject sunRotate;
     public GameObject battery;
     public GameObject batteryText;
-    public GameObject sun;
+    public GameObject sun_Charging;
+    public GameObject sun_NotCharging;
     public GameObject UIManager;
 
     private bool toggle = true;
@@ -36,6 +37,7 @@ public class SolarManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         EventBus.Current.SolarPanelToggle += ToggleSolarGame;
         uiUpdate = UIManager.GetComponent<UIManager>();
         ToggleSolarGame();
@@ -46,12 +48,14 @@ public class SolarManager : MonoBehaviour
     {
         if (Rotationx < randomrotate - 10f && Rotationx > randomrotate - 40f)
         {
-            sun.SetActive(true);
+            sun_Charging.SetActive(true);
+            sun_NotCharging.SetActive(false);
             facingSun = true;
         }else
         {
             facingSun = false;
-            sun.SetActive(false);
+            sun_Charging.SetActive(false);
+            sun_NotCharging.SetActive(true);
         }
         
 

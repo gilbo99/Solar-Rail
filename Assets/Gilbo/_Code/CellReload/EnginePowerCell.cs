@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnginePowerCell : MonoBehaviour
 {
     public float speed;
-    public bool ative = false;
+    public bool activate = false;
 
     private Quaternion camRotation;
     // Start is called before the first frame update
@@ -17,32 +17,32 @@ public class EnginePowerCell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("a")&& ative)
+        if (Input.GetKey("a") && activate)
         {
             camRotation.x += speed * Time.deltaTime;
-            transform.localRotation = Quaternion.Euler(0, 0, camRotation.x);
+            transform.localRotation = Quaternion.Euler(0, 90, camRotation.x);
         }
-        if (Input.GetKey("d")&& ative)
+        if (Input.GetKey("d") && activate)
         {
             camRotation.x -= speed * Time.deltaTime;
-            transform.localRotation = Quaternion.Euler(0, 0, camRotation.x);
+            transform.localRotation = Quaternion.Euler(0, 90, camRotation.x);
         }
 
-        if(Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("f"))
         {
-            ative = !ative;
+            activate = !activate;
         }
 
 
 
-        if (ative == false)
+        if (activate == false)
         {
 
             camRotation.x += 200 * Time.deltaTime;
-            transform.localRotation = Quaternion.Euler(0, 0, camRotation.x);
+            transform.localRotation = Quaternion.Euler(0, 90, camRotation.x);
 
         }
-        
+
 
     }
 }

@@ -49,6 +49,11 @@ public class WaterNutrientMinigame : MonoBehaviour
 
     private string watertankNutrientGoal = "Completed";
 
+
+    // Water??
+    public GameObject Water_NoWater;
+    public GameObject Water_Water;
+
     void Start()
     {
         EventBus.Current.WaterTankMinigame += ToggleWaterGame;
@@ -145,6 +150,9 @@ public class WaterNutrientMinigame : MonoBehaviour
                     nutrientsOptimised = true;
                     nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
+                    Water_NoWater.SetActive(false);
+                    Water_Water.SetActive(true);
+
                 }
                 else
                 {
@@ -165,6 +173,8 @@ public class WaterNutrientMinigame : MonoBehaviour
                     nutrientsOptimised = true;
                     nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
+                    Water_NoWater.SetActive(false);
+                    Water_Water.SetActive(true);
                 }
                 else
                 {
@@ -185,6 +195,9 @@ public class WaterNutrientMinigame : MonoBehaviour
                     nutrientsOptimised = true;
                     nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OptimisedNutrientsMonitor;
                     print("The nutrients in the water has been optimised and now can be used to water plants.");
+                    Water_NoWater.SetActive(false);
+                    Water_Water.SetActive(true);
+
                 }
                 else
                 {
@@ -221,8 +234,8 @@ public class WaterNutrientMinigame : MonoBehaviour
             uiUpdate.ButtonUpdate("","","");
             uiUpdate.borderChange(color2);
         }
-    } 
-
+    }
+   
     void RollNutrients()
     {  
         switch (UnityEngine.Random.Range(0,2))
@@ -230,14 +243,20 @@ public class WaterNutrientMinigame : MonoBehaviour
             case 0:
                 watertankNutrientGoal = "Orange";
                 nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = OrangeGoalMonitor;
+                Water_NoWater.SetActive(true);
+                Water_Water.SetActive(false);
                 break;
             case 1:
                 watertankNutrientGoal = "Green";
                 nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = GreenGoalMonitor;
+                Water_NoWater.SetActive(true);
+                Water_Water.SetActive(false);
                 break;
             case 2:
                 watertankNutrientGoal = "Purple";
                 nutrientsMonitorScreen.GetComponent<MeshRenderer> ().material = PurpleGoalMonitor;
+                Water_NoWater.SetActive(true);
+                Water_Water.SetActive(false);
                 break;
         }
     }
